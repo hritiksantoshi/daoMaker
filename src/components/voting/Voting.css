@@ -1,0 +1,119 @@
+.configTemp{
+        display: flex;
+        flex-direction: column;
+        margin: 0px auto;
+        max-width: 656px;
+        padding: 0px 24px 48px
+}
+.Header{
+    padding: 80px 16px 56px;
+    text-align: center;
+    color: rgb(33, 43, 54);
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-right: 150px;
+}
+.Headertxt{
+    font-size: 40px;
+    font-weight: 600;
+    padding-bottom: 16px;
+
+}
+
+.Headerinnerdiv{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(99, 115, 129);
+}
+
+.VotingScreen{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.VotingScreenlink{
+    display: flex;
+    margin: 0px 12px;
+}
+.ButtonBaselink{
+    display: inline-flex;
+    overflow: hidden;
+    color: rgb(33, 43, 54);
+    height: 24px;
+    background: rgb(235, 250, 253);
+}
+.BadgeBase{
+    overflow: hidden;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 0px;
+    padding-right: 8px;
+    border-radius: 4px;
+}
+.AppBadge{
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        border-radius: 0px;
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-image: url('https://client.aragon.org/voting.716bf85e.svg');
+}
+
+.BadgeBaseV{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(33, 43, 54);
+}
+.Field{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 16px;
+    margin-bottom: 4px;
+    color: rgb(99, 115, 129);
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    user-select: none;
+    margin-bottom: 4px;
+}
+.ButtonBase1{
+    margin-top: -3px;
+    margin-left: 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: rgb(124, 128, 242);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: rgb(0 0 0 / 25%) 0px 1px 3px;
+    transition-property: transform, box-shadow;
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out;
+    padding: 0px;
+}
+#per{
+    width: 56px;
+    padding-left: 4px;
+}

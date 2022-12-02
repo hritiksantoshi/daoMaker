@@ -1,0 +1,42 @@
+@import "rsuite/dist/rsuite.css";
+
+/* #root{
+     padding: 10px;
+     width: 328px;
+    flex-shrink: 0;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+     } */
+
+.sidemain{
+    padding-top: 80px;
+    background: rgb(255, 255, 255);
+    border-right: 1px solid rgb(221, 228, 233);
+}
+.stepSetup{
+    padding-top: 64px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+}
+
+.stepPanel{
+    padding-top: 42px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    margin-left: 20px;
+    width:260px;
+}
+.rs-steps-item-title{
+    font-size: 18px;
+}
+
+.rs-progress-circle-info{
+    font-size: 46px;
+    font-weight: 600;
+    color: rgb(33, 43, 54);
+    left: 20px;
+    line-height: 1;
+}
+
