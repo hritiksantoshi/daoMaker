@@ -54,8 +54,8 @@
     width: 848px;
 }
 .hrefLink{
-    color: rgb(62, 123, 246);
-    text-decoration: underline;
+    color: rgb(99, 115, 129);
+
     font-size: inherit;
 }
 .listDetails{
@@ -78,10 +78,11 @@
     transition-timing-function: ease-in-out;
     text-align: left;
     white-space: normal;
+    
 }
 .insideContainer{
-    /* padding-top: 10%; */
-    padding-left: 15%;
+    padding-left: 80px;
+    padding-right: 60px;
 }
 .imageCss{
     width: 152px;

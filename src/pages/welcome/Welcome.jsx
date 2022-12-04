@@ -60,15 +60,15 @@ function Welcome() {
                         <h1 className='headerHeading'>Welcome To DAO Maker!</h1>
                         <div className='headerDiv'>Create your own organization in a few minutes!</div>
                     </header>
-                    <div className='section'>
-                    <Link onClick={redirectPage} >
+                    <div >
+                    <Link onClick={redirectPage} className='hrefLink' >
                         <div className='listSection'>
                             <section className='sectionDiv'>
                                 <div>
                                     <img src={newOrg} className='imageCss' alt='not found' />
                                 </div>
                                 <div className='listDetails'>
-                                    <h2 className='listHeading'>Create an organization.</h2>
+                                    <h1 className='listHeading'>Create an organization.</h1>
                                     <p style={{textDecoration:'none'}}>Start your own organization.</p>
                                 </div>
                             </section>

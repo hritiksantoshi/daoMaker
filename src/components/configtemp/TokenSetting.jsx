@@ -64,7 +64,7 @@ function TokenSetting() {
                       <div className="tokenAddress">
                         <input
                           type="text"
-                          placeholder="Account address"
+                          placeholder="My Organization Token"
                           className="inputAddress"
                           value={data.tokenName} onChange={(e)=>setData({...data,tokenName:e.target.value})}
                           
