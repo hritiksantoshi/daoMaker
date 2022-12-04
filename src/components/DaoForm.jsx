@@ -7,6 +7,7 @@ import { Row } from "react-bootstrap";
 import { createContext } from "react";
 import "./DaoForm.css";
 import { createUnarySpacing } from "@mui/system";
+import ReviewInfo from "./ReviewInfo/ReviewInfo";
 export const StepContext = createContext();
 const DaoForm = () => {
   const [currentStep, setStep] = useState(0);
@@ -21,7 +22,7 @@ const DaoForm = () => {
     tokenName:"",
     balanceInput:"",
     walletAddress:"",
-    tokenBalance:""
+    tokenSymbol:""
 
   });
   const [progress,setProgress] = useState(0);
@@ -35,7 +36,7 @@ const DaoForm = () => {
     <StepContext.Provider value={{ currentStep, setStep,data,setData,progress,setProgress }}>
       <Row className="section">
         <Sidebar />
-        {currentStep === 1 ? <Voting /> : currentStep === 2 ? <TokenSetting/> : <ClaimName />}
+        {currentStep === 1 ? <Voting /> : currentStep === 2 ? <TokenSetting/> : currentStep === 3 ?<ReviewInfo/>:<ClaimName />}
       </Row>
     </StepContext.Provider>
   );

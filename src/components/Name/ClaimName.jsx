@@ -11,7 +11,8 @@ import { StepContext } from "../DaoForm";
 const ClaimName = () => {
   const { data, setData, currentStep , setStep } = useContext(StepContext);
   return (
-    <div className="claimtemp col-lg-10">
+    
+    <div className="claimtemp ">
       <Form>
         <header className="name">
           <h1 className="nametxt">Claim a name</h1>
@@ -39,37 +40,15 @@ const ClaimName = () => {
           you launch your organization.
         </section>
         <div className="Navigation">
-          {/* <button type="button" className="ButtonBase">
-            <span className="Buttontxt">
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="Navigationsvg"
-              >
-                <path
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="0.2"
-                  d="M18.434 11.434H5.566a.566.566 0 000 1.132h12.869a.565.565 0 100-1.132z"
-                ></path>
-                <path
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="0.2"
-                  d="M6.366 12l4.426-4.426a.565.565 0 10-.8-.8L5.166 11.6a.566.566 0 000 .8l4.826 4.826a.564.564 0 00.8 0 .565.565 0 000-.8L6.366 12z"
-                ></path>
-              </svg>
-            </span>
-            Back
-          </button> */}
-          <button type="button" onClick={()=>setStep(currentStep+1)} disabled={data.name==''} className="ButtonBase">
+         
+          <button type="button" onClick={()=>{setStep(currentStep+1);setData({...data,name:`${data.name}.blocktech.eth`})}} disabled={data.name==''} className="ButtonBase">
             Next: Configure template
           </button>
         </div>
       </Form>
     </div>
+   
+    
   );
 };
 

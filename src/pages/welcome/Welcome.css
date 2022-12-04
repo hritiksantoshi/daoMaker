@@ -1,0 +1,200 @@
+.listSection{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 0px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 1px 3px;
+    transition-property: transform, box-shadow;
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out;
+    text-align: left;
+    white-space: normal;
+}
+
+.listSection{
+    text-decoration: none;
+}
+.accountAddressDisplay{
+  margin-right: 30px;
+  width: 50px;
+    height: 50px;
+}
+.headerHeading{
+    font-size: 40px;
+    font-weight: 600;
+    padding-bottom: 16px;
+}
+.headerDiv{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(99, 115, 129);
+}
+.horizontalLine{
+    padding-top: 0px;
+}
+.paraLast{
+    padding: 32px 0px;
+    text-align: center;
+    color: rgb(99, 115, 129);
+}
+.header{
+        padding: 80px 16px 56px;
+    text-align: center;
+    margin-right: 70px;
+    width: 848px;
+}
+.hrefLink{
+    color: rgb(62, 123, 246);
+    text-decoration: underline;
+    font-size: inherit;
+}
+.listDetails{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 0px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 1px 3px;
+    transition-property: transform, box-shadow;
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out;
+    text-align: left;
+    white-space: normal;
+}
+.insideContainer{
+    /* padding-top: 10%; */
+    padding-left: 15%;
+}
+.imageCss{
+    width: 152px;
+    text-align: center;
+}
+.listHeading{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+.sectionDiv{
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.sideWallet{
+    position: fixed;
+    top: 2;
+    right:2;
+}
+.goerliSection{
+    height: 40px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-right: 24px;
+}
+.buttonContainer{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 16px;
+}
+.goerliButton{
+    margin-right: -24px;
+    color: rgb(33, 43, 54);
+    background: rgb(249, 250, 252);
+    font-family: aragon-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.goerliButtonCss{
+    position: relative;
+    display: inline-block;
+    padding: 0px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+    text-align: center;
+    background: none;
+    border-radius: 4px;
+    border: 0px;
+    outline: 0px;
+    cursor: pointer;
+}
+.section{
+    height: 200px;
+    width: 100%;
+}
+.goerliSection{
+    height: 40px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-right: 24px;
+}
+.connectWallet{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+}
+.walletbuttonCss{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: auto;
+    height: 40px;
+    min-width: 0px;
+    padding: 0px 24px 0px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    user-select: none;
+    background: rgb(255, 255, 255);
+    color: rgb(33, 43, 54);
+    white-space: nowrap;
+    border: 1px solid rgb(221, 228, 233);
+    box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px;
+    transition-property: transform, box-shadow;
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out;
+}
+.spanClass{
+    position: relative;
+    top: -1px;
+    display: flex;
+    color: rgb(143, 164, 181);
+    margin-right: 8px;
+}
+.logo{
+    width: 36px;
+    height: 33.81px;
+    position:fixed;
+    top: 2;
+    left: 0;
+}

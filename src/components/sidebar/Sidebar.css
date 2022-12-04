@@ -9,6 +9,7 @@
      } */
 
 .sidemain{
+    width:328px;
     padding-top: 80px;
     background: rgb(255, 255, 255);
     border-right: 1px solid rgb(221, 228, 233);

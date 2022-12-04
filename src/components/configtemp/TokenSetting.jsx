@@ -11,9 +11,9 @@ import { StepContext } from "../DaoForm";
 function TokenSetting() {
     const { data, setData, currentStep , setStep } = useContext(StepContext);
   return (
-      <div className="col-lg-10">
+      <div className="configToken col-lg-10">
         <div className="insideContainer">
-          <header className="header">
+          <header className="tokenheader">
             <h1 className="headerHeading">Configure Template</h1>
             <div className="headerDiv">
               <span className="headerSpan">
@@ -76,7 +76,7 @@ function TokenSetting() {
                     </div>
                     <div>
                       <input type="text" className="balanceInput" 
-                         value={data.tokenBalance} onChange={(e)=>setData({...data,tokenBalance:e.target.value})}
+                         value={data.tokenBalance} onChange={(e)=>setData({...data,tokenSymbol:e.target.value})}
                       />
                     </div>
                   </div>
@@ -146,11 +146,11 @@ function TokenSetting() {
             <div className="butttonReviewInfo">
               <button type="button" className="backButton" onClick={()=>setStep(currentStep-1)}>
                 <span className="backIcon">
-                  <BiArrowBack color="green" />
+                  <BiArrowBack color="rgb(8, 190, 229)" />
                 </span>
                 Back
               </button>
-              <button type="submit" onClick={()=>setStep(currentStep+1)} disabled={data.tokenName==''||data.balanceInput==''||data.walletAddress==''||data.tokenBalance==''} className="ButtonBase">
+              <button type="submit" onClick={()=>setStep(currentStep + 1)} disabled={data.tokenName==''||data.balanceInput==''||data.walletAddress==''||data.tokenBalance==''} className="ButtonBase">
                 Next: Configure template
               </button>
             </div>

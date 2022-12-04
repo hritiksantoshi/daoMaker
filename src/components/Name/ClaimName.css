@@ -1,19 +1,31 @@
-.name{
+.formsection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    -moz-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.name {
     padding: 80px 16px 56px;
     text-align: center;
 }
-.nametxt{
+
+.nametxt {
     font-size: 40px;
     font-weight: 600;
     padding-bottom: 0px;
 }
-.claimtemp{
+
+.claimtemp {
     display: flex;
     flex-direction: column;
     margin: 0px auto;
     max-width: 656px;
     padding: 0px 24px 48px;
 }
+
 .hfuhYh {
     color: rgb(7, 146, 175);
     background: rgb(235, 250, 253);
@@ -26,6 +38,7 @@
     line-height: 1.5;
     margin-bottom: 24px;
 }
+
 .EUQBK {
     position: relative;
     display: inline-block;
@@ -43,6 +56,7 @@
     color: rgb(62, 123, 246);
     text-decoration: underline;
 }
+
 .Navigation {
     display: flex;
     width: 100%;
@@ -79,6 +93,7 @@
     outline: 0px;
     cursor: pointer;
 }
+
 .Buttontxt {
     position: relative;
     top: -1px;
@@ -92,6 +107,7 @@
     text-align: center;
     cursor: pointer;
 }
+
 .Navigationsvg {
     color: rgb(8, 190, 229);
 }

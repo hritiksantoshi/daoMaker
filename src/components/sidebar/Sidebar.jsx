@@ -30,18 +30,18 @@ const Sidebar = () => {
   const color = percent === 100 ? "#52c41a" : "#3385ff";
 
   return (
-    <div className="sidemain col-lg-2">
+    <div className="sidemain">
       <div style={{ width: 200, height: 200, marginTop: 10, marginLeft: 55 }}>
         <Progress.Circle
-          percent={progress}
+          percent={currentStep===1?33:currentStep===2?33:currentStep === 3?66:0}
           strokeColor={color}
           status={status}
         />
-         <Panel style={{paddingLeft:52}} header={`Steps: ${step + 1}/4`}>
+         <Panel style={{paddingLeft:52}} header={`Steps: ${currentStep===1?2:currentStep===2?2:currentStep === 3?3:1}/4`}>
       </Panel>
       </div>
       <div className="stepSetup">
-      <Steps className="stepPanel" vertical current={currentStep}>
+      <Steps className="stepPanel" vertical current={currentStep===1?1:currentStep===2?1:currentStep === 3?2:0}>
         <Steps.Item title="Claim domain" />
         <Steps.Item title="Configure template" />
         <Steps.Item title="Review information" />

@@ -1,0 +1,39 @@
+.modal.right.fade .modal-dialog {
+    right: -480px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+       -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+         -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+            width: 400px;
+}
+.metamaskWallet{
+    display: inline;
+    width:160px;
+    height: 60px;
+}
+.coinbaseWallet{
+    display: inline;
+    width:160px;
+    height: 60px;
+}
+.walletImage{
+    height: 40px;
+    width: 40px;
+}
+.wallet{
+    height: 100px;
+    width: 120px;
+   
+}
+.allWallets{
+    width: 250px;
+    height: 200px;
+    display: flex;
+}
+link{
+    text-decoration: none;
+}
+.connectWalletFooter{
+    align-items: center;
+    padding-right: 100px;
+}

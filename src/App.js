@@ -1,21 +1,20 @@
 import { useState } from "react";
-import Sidebar from "./components/sidebar/Sidebar";
-import ClaimName from "./components/Name/ClaimName";
 import './App.css';
-import { Row } from "react-bootstrap";
-import Voting from "./components/voting/Voting";
 import DaoForm from "./components/DaoForm";
-
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import Welcome from "./pages/welcome/Welcome";
 function App() {
 
 
   return (
-    // <Row className="section">
-    //   <Sidebar />
-    //   {/* <ClaimName /> */}
-    //   <Voting/>
-    // </Row>
-    <DaoForm/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Welcome/>}/>
+        <Route path="/token" element={<DaoForm/>}/>
+
+      </Routes>
+    </BrowserRouter>
+  
   );
 }
 
