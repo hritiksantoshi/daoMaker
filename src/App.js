@@ -3,12 +3,13 @@ import "./App.css";
 import DaoForm from "./components/DaoForm";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import Welcome from "./pages/welcome/Welcome";
+import Home from "./components/home/Home"
 import DaoNav from "./components/DaoNavBar/DaoNav";
 import DaoSideBar from "./components/DaoSideBar/DaoSideBar";
 import { Col, Container, Row } from "react-bootstrap";
 function Layout() {
   return (
-    <Container fluid>
+    <Container fluid style={{padding:0}}>
       <DaoNav />
       <Row className="myRow">
         <DaoSideBar/>
@@ -30,7 +31,7 @@ function App() {
       <Routes>
         <Route index element={<Welcome />} />
         <Route path="/dapp" element={<Layout />}>
-          <Route index element={<Col lg="10" className="bg-dark"></Col>} />
+          <Route index element={<Home/>} />
           <Route path="2" element={<Two/>} />
         </Route>
         <Route path="/token" element={<DaoForm />} />

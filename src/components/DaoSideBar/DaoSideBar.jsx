@@ -2,24 +2,50 @@ import React from "react";
 import "./DaoSideBar.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import home from "../../assets/app-home.svg"
+import tokenImage from "../../assets/icon.svg"
+import Voting from "../../assets/voting.svg";
+import finance from "../../assets/finance.svg"
 const DaoSideBar = () => {
   return (
-    <Col lg="2" className="bg-light">
+    <Col lg="2" className="sidebar">
     <h1 className="txt">Apps</h1>
-      <ul style={{'list-style': 'none'}}>
-        <li>
-          <Link to="/dapp">HOME</Link>
+    <div className="menulist">
+      <ul style={{'listStyle': 'none'}}>
+        <li >
+          <Link to="/dapp" style={{ textDecoration: 'none' }}>
+             <div className="button">
+              <img src={home} style={{width:24,height:24,borderRadius:4}}/>
+              <span className="iconTxt">Home</span>
+             </div>
+          </Link>
         </li>
         <li>
-          <Link to="/dapp/2">TOKENS</Link>
+          <Link to="/dapp/2" style={{ textDecoration: 'none' }}>
+          <div className="button">
+              <img src={tokenImage} style={{width:24,height:24,borderRadius:4}}/>
+              <span className="iconTxt">Tokens</span>
+             </div>
+          </Link>
         </li>
         <li>
-          <Link to="/dapp/2">VOTING</Link>
+          <Link to="/dapp/2" style={{ textDecoration: 'none' }}>
+          <div className="button">
+              <img src={Voting} style={{width:24,height:24,borderRadius:4}}/>
+              <span className="iconTxt">Voting</span>
+             </div>
+          </Link>
         </li>
         <li>
-          <Link to="/dapp/2">FINANCE</Link>
+          <Link to="/dapp/2" style={{ textDecoration: 'none' }}>
+          <div className="button">
+              <img src={finance} style={{width:24,height:24,borderRadius:4}}/>
+              <span className="iconTxt">Finance</span>
+             </div>
+          </Link>
         </li>
       </ul>
+      </div>
     </Col>
   );
 };
