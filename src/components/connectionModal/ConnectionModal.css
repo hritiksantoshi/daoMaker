@@ -1,10 +1,15 @@
 .modal.right.fade .modal-dialog {
     right: -480px;
-    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-       -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-         -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-            transition: opacity 0.3s linear, right 0.3s ease-out;
+    box-shadow: none;
             width: 400px;
+}
+.modal-backdrop.show {
+     opacity: 0; 
+}
+
+.modal-content{
+    margin-left: 250px;
+    margin-top: 64px;
 }
 .metamaskWallet{
     display: inline;

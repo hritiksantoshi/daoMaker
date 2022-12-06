@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+.myRow{
+  height: calc(100vh - 64px);
+  margin: 0px;
+  padding: 0px;
+}
 .section{
    min-height: 100vh;
    margin: 0px;

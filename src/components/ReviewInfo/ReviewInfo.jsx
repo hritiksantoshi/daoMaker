@@ -5,9 +5,17 @@ import TokenManager from '../../assets/tokenImage.jpg';
 import Accordion from 'react-bootstrap/Accordion';
 import { BiArrowBack } from "react-icons/bi";
 import { StepContext } from "../DaoForm";
-
+import {deploy} from "../../utils/deploy"
 function ReviewInfo() {
     const { data, setData, currentStep, setStep } = useContext(StepContext);
+    const tokendeploy = async () => {
+        try {
+          const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage);
+        } catch (error) {
+          console.log(error);
+        }  
+      }
+
     return (
        
             <div className='reviewDiv'>
@@ -86,7 +94,7 @@ function ReviewInfo() {
                     <button type="button" className="ButtonBase" onClick={() => setStep(currentStep - 1)}>
                         <span className="Button"><BiArrowBack color="rgb(8, 190, 229)" />
                         </span>Back</button>
-                    <button type="submit" className="launchBtn">Launch your organization</button></div>
+                    <button type="submit" className="launchBtn" onClick={tokendeploy}>Launch your organization</button></div>
             </div>
        
     )

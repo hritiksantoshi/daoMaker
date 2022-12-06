@@ -41,7 +41,7 @@ const ClaimName = () => {
         </section>
         <div className="Navigation">
          
-          <button type="button" onClick={()=>{setStep(currentStep+1);setData({...data,name:`${data.name}.blocktech.eth`})}} disabled={data.name==''} className="ButtonBase">
+          <button type="button" onClick={()=>{setStep(currentStep+1);setData({...data,name:data.name})}} disabled={data.name==''} className="ButtonBase">
             Next: Configure template
           </button>
         </div>

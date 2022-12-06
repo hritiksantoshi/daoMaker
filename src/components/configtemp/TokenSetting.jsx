@@ -1,4 +1,4 @@
-import React,{ useContext } from "react";
+import React,{ useContext, useState } from "react";
 import "./TokenSetting.css";
 import TokenImage from "../../assets/tokenImage.jpg";
 import { AiFillQuestionCircle, AiOutlineDelete } from "react-icons/ai";
@@ -10,6 +10,15 @@ import { StepContext } from "../DaoForm";
 
 function TokenSetting() {
     const { data, setData, currentStep , setStep } = useContext(StepContext);
+    const [tokenList,setTokenlist]  = useState([{token:""}]);
+    const handleTokenAdd = () =>{
+      setTokenlist([...tokenList,{token:""}])
+    }
+    const handleTokenRemove = (index) =>{
+      const list = [...tokenList];
+      list.splice(index,1);
+      setTokenlist(list);
+    }
   return (
       <div className="configToken col-lg-10">
         <div className="insideContainer">
@@ -58,7 +67,7 @@ function TokenSetting() {
                     <div>Token Symbol</div>
                   </div>
                 </div>
-                <div>
+                <div>         
                   <div className="accountAddress">
                     <div>
                       <div className="tokenAddress">
@@ -93,8 +102,51 @@ function TokenSetting() {
                   </div>
                 </div>
                 <div>
-                  <div className="accountAddress">
+
+                {tokenList.map((singleToken,index) => {
+                return(
+                  <div key={index} className="accountAddress">
+                      <div className="tokenAddress">
+                        <input
+                         name="token"
+                         id="token"
+                          type="text"
+                          placeholder="Account address"
+                          className="inputAddress"
+                          value={data.walletAddress} onChange={(e)=>setData({...data,walletAddress:e.target.value})}
+                        />
+                        <div className="deleteButtonDiv">
+                          <span className="spanButton">
+                          {tokenList.length > 1 && (
+                            <button
+                              type="button"
+                              title="Remove"
+                              className="deleteButton"
+                              onClick={() => handleTokenRemove(index)}
+                            >
+                              <span className="spanDeleteButton">
+                                <AiOutlineDelete color="red" />
+                              </span>
+                            </button>
+                          )}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="balancesDiv" style={{}}>
+                        <div className=""></div>
+                      </div>
+                   
                     <div>
+                      <input type="text" className="balanceInput"          
+                      onChange={(e)=>setData({...data,balanceInput:e.target.value})}/>
+                    </div>
+                  </div>
+                )
+                 
+
+                })}
+
+                  {/* <div className="accountAddress">
                       <div className="tokenAddress">
                         <input
                           type="text"
@@ -119,20 +171,26 @@ function TokenSetting() {
                       <div className="balancesDiv" style={{}}>
                         <div className=""></div>
                       </div>
-                    </div>
+                  
                     <div>
                       <input type="text" className="balanceInput"          
                       value={data.balanceInput} onChange={(e)=>setData({...data,balanceInput:e.target.value})}
  />
                     </div>
-                  </div>
+                  </div> */}
+
+
+                  
+
+
+
                 </div>
-                <button type="button" className="addMoreAddress">
+                {/* <button type="button" className="addMoreAddress" onClick={handleTokenAdd}>
                   <span className="addMoreSpan">
                     <GrAdd color="blue" className="AddIcon" />
                   </span>
                   Add more
-                </button>
+                </button> */}
               </label>
             </div>
 

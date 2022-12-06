@@ -131,22 +131,22 @@ const Voting = () => {
         <Row className="mb-3" style={{marginTop:28}}>
         <Form.Group as={Col} controlId="Days">
         <InputGroup>
-          <Form.Control />
-          <InputGroup.Text id="basic-addon2">Days</InputGroup.Text>
+          <Form.Control value = {data.votingPeriod.day} onChange={(e)=>setData({...data,votingPeriod: {...data.votingPeriod, day: e.target.value}})}/>
+          <InputGroup.Text id="basic-addon2" >Days</InputGroup.Text>
           </InputGroup>
         </Form.Group>
 
         <Form.Group as={Col} controlId="Hours">
         <InputGroup>
-          <Form.Control />
+          <Form.Control  value = {data.votingPeriod.hours}  onChange={(e)=>setData({...data,votingPeriod: {...data.votingPeriod, hours: e.target.value}})}/>
           <InputGroup.Text id="basic-addon2">Hours</InputGroup.Text>
           </InputGroup>
         </Form.Group>
 
         <Form.Group as={Col} controlId="minutes">
         <InputGroup>
-          <Form.Control />
-          <InputGroup.Text id="basic-addon2">minutes</InputGroup.Text>
+          <Form.Control value = {data.votingPeriod.mins} onChange={(e)=>setData({...data,votingPeriod: {...data.votingPeriod, mins: e.target.value}})}/>
+          <InputGroup.Text id="basic-addon2" >minutes</InputGroup.Text>
           </InputGroup>
         </Form.Group>
         </Row>    
@@ -180,7 +180,7 @@ const Voting = () => {
               </span>
               Back
             </button>
-            <button  type="button" onClick={()=>setStep(currentStep+1)} className="ButtonBase">
+            <button  type="button" onClick={()=>setStep(currentStep+1)} disabled = {data.votingPeriod ==''} className="ButtonBase">
               Next: Configure template
             </button>
           </div> 

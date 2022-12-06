@@ -4,7 +4,7 @@ import { StepContext } from "../DaoForm";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  const {progress,currentStep} = useContext(StepContext);
+  const {progress,currentStep,data} = useContext(StepContext);
   const [percent, setPercent] = React.useState(30);
   const [step, setStep] = React.useState(0);
   const decline = () => {
