@@ -8,6 +8,7 @@ import { createContext } from "react";
 import "./DaoForm.css";
 import { createUnarySpacing } from "@mui/system";
 import ReviewInfo from "./ReviewInfo/ReviewInfo";
+import Loader from "../components/loaderModal/Loader"
 export const StepContext = createContext();
 const DaoForm = () => {
   const [currentStep, setStep] = useState(0);
@@ -26,6 +27,12 @@ const DaoForm = () => {
 
   });
   const [progress,setProgress] = useState(0);
+  const [loading,setloading] = useState(false);
+
+  const loader = () => {
+    console.log('lo');
+    setloading(!loading);
+  }
 
   useEffect(() => {
     console.log(data,'data');
@@ -33,10 +40,11 @@ const DaoForm = () => {
   }, [currentStep]);
   
   return (
-    <StepContext.Provider value={{ currentStep, setStep,data,setData,progress,setProgress }}>
-      <Row className="section">
+    <StepContext.Provider value={{ currentStep, setStep,data,setData,progress,setProgress,loading,setloading,loader }}>
+    <Loader/>
+      <Row className="section"> 
         <Sidebar />
-        {currentStep === 1 ? <Voting /> : currentStep === 2 ? <TokenSetting/> : currentStep === 3 ?<ReviewInfo/>:<ClaimName />}
+        {currentStep === 1 ? <Voting /> : currentStep === 2 ? <TokenSetting/> : currentStep === 3 ?<ReviewInfo/>:currentStep === 4 ?<ReviewInfo/>:<ClaimName />}
       </Row>
     </StepContext.Provider>
   );

@@ -33,7 +33,7 @@ const Sidebar = () => {
     <div className="sidemain">
       <div style={{ width: 200, height: 200, marginTop: 10, marginLeft: 55 }}>
         <Progress.Circle
-          percent={currentStep===1?33:currentStep===2?33:currentStep === 3?66:0}
+          percent={currentStep===1?33:currentStep===2?33:currentStep === 3?66:currentStep === 4?100:0}
           strokeColor={color}
           status={status}
         />
@@ -41,7 +41,7 @@ const Sidebar = () => {
       </Panel>
       </div>
       <div className="stepSetup">
-      <Steps className="stepPanel" vertical current={currentStep===1?1:currentStep===2?1:currentStep === 3?2:0}>
+      <Steps className="stepPanel" vertical current={currentStep===1?1:currentStep===2?1:currentStep === 3?2:currentStep === 4?3:0}>
         <Steps.Item title="Claim domain" />
         <Steps.Item title="Configure template" />
         <Steps.Item title="Review information" />

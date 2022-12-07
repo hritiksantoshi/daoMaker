@@ -9,7 +9,7 @@ import { ContractFactory , ethers } from "ethers";
 const ethereum = window.ethereum;
 
 
-export const deploy = async (name,symbol,DaoName,DaoQourum) => {
+export const deploy = async (name,symbol,DaoName,DaoQourum,setloading) => {
   try{
     if (!ethereum)
         throw toast.error("No crypto wallet found. Please install it.");
@@ -20,6 +20,7 @@ export const deploy = async (name,symbol,DaoName,DaoQourum) => {
      
       const supply = ethers.utils.parseUnits("1000", 'ether') ;
       const token = await factory.deploy(name,symbol,supply);
+      
       
       const factory1 = new ContractFactory(timelockABI, timelockByteCode.object, signer);
       const proposer = "0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9";
@@ -33,6 +34,7 @@ export const deploy = async (name,symbol,DaoName,DaoQourum) => {
       const governance = await factory2.deploy(DaoName,token.address,timelock.address,DaoQourum,votingPeriod);
 
        console.log(governance,"deployed");
+       return governance;
      
   }catch(err){
     console.log("errorrr deply msg fn", err);

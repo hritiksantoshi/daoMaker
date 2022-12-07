@@ -7,10 +7,15 @@ import { BiArrowBack } from "react-icons/bi";
 import { StepContext } from "../DaoForm";
 import {deploy} from "../../utils/deploy"
 function ReviewInfo() {
-    const { data, setData, currentStep, setStep } = useContext(StepContext);
+    const { data, setData, currentStep, setStep ,loading,setloading,loader} = useContext(StepContext);
     const tokendeploy = async () => {
         try {
-          const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage);
+            setStep(currentStep+1);
+          const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading);
+          if(res){
+            window.location.href='http://localhost:3000/dapp';
+          }
+         
         } catch (error) {
           console.log(error);
         }  

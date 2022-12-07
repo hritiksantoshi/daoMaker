@@ -7,7 +7,7 @@
     box-shadow: rgb(0 0 0 / 5%) 2px 0px 3px;
 }
 .txt{
-    margin-top: 2px;
+    margin-top: 34px;
     display: flex;
     -webkit-box-pack: start;
     justify-content: flex-start;
@@ -16,7 +16,7 @@
     height: 24px;
     margin-left: 24px;
     color: rgb(99, 115, 129);
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.5;
     text-transform: uppercase;
     font-weight: 400;
@@ -36,7 +36,7 @@ font-weight: 600;
     margin-left: 8px;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 1.5;
     color: rgb(33, 43, 54);
@@ -47,4 +47,16 @@ font-weight: 600;
 .sidebar{
     background: rgb(255, 255, 255);
     box-shadow: rgb(0 0 0 / 5%) 0px 2px 3px;
+}
+.sidediv{
+    height: 100%;
+    z-index: 3;
+    width: 224px;
+    box-shadow: rgb(0 0 0 / 6%) 4px 0px 3px;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+}
+.listmenu{
+    padding: 3px 0px;
 }

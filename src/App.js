@@ -7,6 +7,7 @@ import Home from "./components/home/Home"
 import DaoNav from "./components/DaoNavBar/DaoNav";
 import DaoSideBar from "./components/DaoSideBar/DaoSideBar";
 import { Col, Container, Row } from "react-bootstrap";
+import Token from "./components/Tokens/Token";
 function Layout() {
   return (
     <Container fluid style={{padding:0}}>
@@ -20,7 +21,7 @@ function Layout() {
 }
 
 function Two() {
-  return <Col lg="10" className="bg-primary">
+  return <Col lg="10" className="bg-dark">
 
   </Col>
 }
@@ -32,7 +33,7 @@ function App() {
         <Route index element={<Welcome />} />
         <Route path="/dapp" element={<Layout />}>
           <Route index element={<Home/>} />
-          <Route path="2" element={<Two/>} />
+          <Route path="2" element={<Token/>} />
         </Route>
         <Route path="/token" element={<DaoForm />} />
       </Routes>

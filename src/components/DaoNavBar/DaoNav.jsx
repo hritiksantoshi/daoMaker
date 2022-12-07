@@ -1,10 +1,11 @@
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
 import Button from 'react-bootstrap/Button';
 import ConnectionModal from '../../components/connectionModal/ConnectionModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {getBalance} from '../../config';
 import wallet from "../../assets/wallet.png"
+import { StepContext } from "../DaoForm";
 import "./DaoNav.css";
 const DaoNav = () => {
     const [show,setShow]=useState(false);

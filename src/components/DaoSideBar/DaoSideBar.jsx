@@ -9,10 +9,11 @@ import finance from "../../assets/finance.svg"
 const DaoSideBar = () => {
   return (
     <Col lg="2" className="sidebar">
+    <div className="sidediv">
     <h1 className="txt">Apps</h1>
     <div className="menulist">
-      <ul style={{'listStyle': 'none'}}>
-        <li >
+      <ul style={{'listStyle': 'none',paddingTop:0,paddingLeft:21}}>
+        <li className="listmenu">
           <Link to="/dapp" style={{ textDecoration: 'none' }}>
              <div className="button">
               <img src={home} style={{width:24,height:24,borderRadius:4}}/>
@@ -20,7 +21,7 @@ const DaoSideBar = () => {
              </div>
           </Link>
         </li>
-        <li>
+        <li  className="listmenu">
           <Link to="/dapp/2" style={{ textDecoration: 'none' }}>
           <div className="button">
               <img src={tokenImage} style={{width:24,height:24,borderRadius:4}}/>
@@ -28,16 +29,16 @@ const DaoSideBar = () => {
              </div>
           </Link>
         </li>
-        <li>
-          <Link to="/dapp/2" style={{ textDecoration: 'none' }}>
+        <li  className="listmenu">
+          <Link to="" style={{ textDecoration: 'none' }}>
           <div className="button">
               <img src={Voting} style={{width:24,height:24,borderRadius:4}}/>
               <span className="iconTxt">Voting</span>
              </div>
           </Link>
         </li>
-        <li>
-          <Link to="/dapp/2" style={{ textDecoration: 'none' }}>
+        <li >
+          <Link to="" style={{ textDecoration: 'none' }}>
           <div className="button">
               <img src={finance} style={{width:24,height:24,borderRadius:4}}/>
               <span className="iconTxt">Finance</span>
@@ -45,6 +46,7 @@ const DaoSideBar = () => {
           </Link>
         </li>
       </ul>
+      </div>
       </div>
     </Col>
   );
