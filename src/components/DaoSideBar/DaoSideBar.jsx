@@ -30,7 +30,7 @@ const DaoSideBar = () => {
           </Link>
         </li>
         <li  className="listmenu">
-          <Link to="" style={{ textDecoration: 'none' }}>
+          <Link to="/dapp/3" style={{ textDecoration: 'none' }}>
           <div className="button">
               <img src={Voting} style={{width:24,height:24,borderRadius:4}}/>
               <span className="iconTxt">Voting</span>

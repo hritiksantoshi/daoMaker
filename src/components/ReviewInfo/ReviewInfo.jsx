@@ -11,10 +11,10 @@ function ReviewInfo() {
     const tokendeploy = async () => {
         try {
             setStep(currentStep+1);
-          const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading);
-          if(res){
+        //   const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading);
+          
             window.location.href='http://localhost:3000/dapp';
-          }
+          
          
         } catch (error) {
           console.log(error);

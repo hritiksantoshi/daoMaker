@@ -8,6 +8,7 @@ import DaoNav from "./components/DaoNavBar/DaoNav";
 import DaoSideBar from "./components/DaoSideBar/DaoSideBar";
 import { Col, Container, Row } from "react-bootstrap";
 import Token from "./components/Tokens/Token";
+import VotingDetails from "./components/votingtemp/VotingDetails";
 function Layout() {
   return (
     <Container fluid style={{padding:0}}>
@@ -34,6 +35,7 @@ function App() {
         <Route path="/dapp" element={<Layout />}>
           <Route index element={<Home/>} />
           <Route path="2" element={<Token/>} />
+          <Route path="3" element={<VotingDetails/>}/>
         </Route>
         <Route path="/token" element={<DaoForm />} />
       </Routes>

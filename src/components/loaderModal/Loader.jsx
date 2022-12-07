@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import { createContext ,useContext} from "react";
-import LoadingOverlay from "react-loading-overlay";
 import HashLoader from "react-spinners/HashLoader";
 import {StepContext} from "../DaoForm"
 import './Loader.css';
