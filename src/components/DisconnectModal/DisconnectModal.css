@@ -1,0 +1,32 @@
+.dissModal .modal-dialog{
+    margin-top: 54px;
+    margin-right: 0px;
+    
+}
+
+.dissModal .modal-content{
+    border-radius: 4px;
+    width:100%;
+}
+
+.discconnectbtn{
+    border-radius: 4px;
+width: 400px;
+color: black;
+background: white;
+box-shadow: 1px 1px 1px 2px #aaa;
+border: none;
+}
+
+.copybtn{
+    border:none;
+    background:none;
+}
+.addtxt{
+    padding-top: 8px;
+    font-size: 16px;
+}
+
+.dissModal .modal-footer{
+    padding-right: 43px;
+}

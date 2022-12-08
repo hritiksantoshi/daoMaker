@@ -1,18 +1,38 @@
-import React from 'react'
+import React ,{useContext} from 'react'
 import { Modal, Button } from "react-bootstrap";
+import { StepContext } from '../../App';
+import {BiCopy} from "react-icons/bi" 
+import metamask from "../../assets/metamask.webp";
+import copy from "copy-to-clipboard"; 
+import "./DisconnectModal.css";
+
 const DisconnectModal = () => {
+  const {showDiss, setShowDiss , walletAddress,displayWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
+  const handleClose = () => {
+    setShowDiss(false);
+  };
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal  className="dissModal"show={showDiss} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>ACTIVE ACCOUNT</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <div className='bodyContent'>
+            <div style={{float:"left",display:'flex'}}>
+            <img src={metamask} style={{ width: 30, height: 30 ,marginRight:8}}/>
+            <h5 style={{fontSize:18,fontWeight:100,paddingTop:4}}>Metamask</h5>
+            </div>
+            <div style={{float:'right',display:'flex'}}>
+              <p className='addtxt'>{displayWalletAddress}</p>
+              <Button className='copybtn' onClick={() => copy(walletAddress)}>
+            <BiCopy style={{color:"gray",width:24,height: 24}}/>
+            </Button>
+</div>
+          </div>
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button  className="discconnectbtn" onClick={handleClose}>
+            Disconnect Wallet
           </Button>
         </Modal.Footer>
       </Modal>

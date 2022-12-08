@@ -12,18 +12,21 @@ import "react-toastify/dist/ReactToastify.css";
 import { getBalance } from "../../config";
 import { useContext } from "react";
 import { StepContext } from "../../App";
+import DisconnectModal from "../../components/DisconnectModal/DisconnectModal";
 function Welcome() {
   const {
     show,
-       setShow,
+    setShow,
+    showDiss,
+    setShowDiss,
     walletAddress,
     setWalletAddress,
     displayWalletAddress,
     setDisplayWalletAddress,
   } = useContext(StepContext);
-  
+
   const navigate = useNavigate();
- 
+
 
   const disconnectWallet = () => {
     console.log("wallet disconnected");
@@ -33,7 +36,7 @@ function Welcome() {
 
   const redirectPage = async () => {
     console.log(walletAddress);
-    if ( walletAddress === "" ||  walletAddress === null) {
+    if (walletAddress === "" || walletAddress === null) {
       toast.error("Connect your Metamask wallet !");
     } else {
       const addressBalance = await getBalance(walletAddress);
@@ -52,12 +55,13 @@ function Welcome() {
           <img src={logo} className="logo" alt="not found" />
         </Link>
         <div className="buttonContainer">
-          { walletAddress !== "" &&  walletAddress !== null ? (
+          {walletAddress ? (
+            <>
             <Button
               type="button"
               className="welbtn"
               onClick={() => {
-                setShow(!show);
+                setShowDiss(!showDiss);
               }}
             >
               <img src={wallet} style={{ width: 24, height: 24 }} />
@@ -71,6 +75,8 @@ function Welcome() {
                 </svg>
               </span>
             </Button>
+             <DisconnectModal/> 
+             </>    
           ) : (
             <>
               <div className="goerliButton">
@@ -101,9 +107,7 @@ function Welcome() {
             </>
           )}
         </div>
-        <ConnectionModal
-          
-        />
+        <ConnectionModal />
         <div className="insideContainer">
           <header className="header">
             <h1 className="headerHeading">Welcome To DAO Maker!</h1>
