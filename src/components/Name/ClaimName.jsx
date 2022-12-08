@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import "./ClaimName.css";
-import { StepContext } from "../DaoForm";
+import { StepContext } from "../../App";
 
 const ClaimName = () => {
   const { data, setData, currentStep , setStep } = useContext(StepContext);

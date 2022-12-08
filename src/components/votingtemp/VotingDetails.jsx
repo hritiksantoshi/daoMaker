@@ -11,7 +11,7 @@ function VotingDetails() {
     const [response,setResponse]=useState([1,2,3]);
   return (
     <Col lg="10">
-    <div>
+    <div className='vote'>
         <div className="Header___StyledDiv-euryjq-0 eTEUIa">
         <div className="Header___StyledDiv2-euryjq-1 cyZZaq">
         <div className="Header___StyledDiv3-euryjq-2 hyGpzQ">

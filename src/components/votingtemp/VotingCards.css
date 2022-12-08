@@ -19,7 +19,7 @@
     -webkit-box-pack: center;
     justify-content: center;
     border: 0px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 1px 3px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 1px 1px 1px;
     transition-property: transform, box-shadow;
     transition-duration: 50ms;
     transition-timing-function: ease-in-out;

@@ -3,6 +3,7 @@
     background: none;
     margin-bottom: 0px;
     box-shadow: none;
+    width: 65%;
 }
 .cyZZaq {
     display: flex;
@@ -67,7 +68,7 @@
     color: rgb(255, 255, 255);
     white-space: nowrap;
     border: 0px;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px;
     transition-property: transform, box-shadow;
     transition-duration: 50ms;
@@ -365,4 +366,8 @@
 .cxrmQc {
     display: flex;
     padding: 0px 4px 0px 10px;
+}
+.vote{
+    margin-top: 10px;
+    margin-left: 128px;
 }

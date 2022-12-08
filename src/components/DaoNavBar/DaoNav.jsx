@@ -1,16 +1,17 @@
-import React,{useState,useContext} from "react";
+import React,{useState,useEffect} from "react";
 import Button from 'react-bootstrap/Button';
 import ConnectionModal from '../../components/connectionModal/ConnectionModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {getBalance} from '../../config';
 import wallet from "../../assets/wallet.png"
-import { StepContext } from "../DaoForm";
+import { daoDetails } from "../../utils/getData";
 import "./DaoNav.css";
 const DaoNav = () => {
     const [show,setShow]=useState(false);
     const [accountAddress,setAccountAddress]=useState('');
     const [accountAddressDisplay,setAccountAddressDisplay]=useState('');
+    const [name,setName] = useState('')
     const disconnectWallet = ()=>{
         console.log('wallet disconnected');
         localStorage.removeItem('isWalletConnected')
@@ -34,11 +35,23 @@ const DaoNav = () => {
         
         
     }
+    const data = async () => {
+      try {
+        const res = await daoDetails();
+          setName(res);
+      } catch (error) {
+        console.log(error);
+      }  
+    }
+  
+    useEffect(() => {
+      data(); 
+  },[]);
   return (
     <div className="NavContainer">
       <div className="navbar">
         <span className="dot"></span>
-        <span className="OrganizationItem">dapp.blocktech.eth</span>
+        <span className="OrganizationItem">{name}.blocktech.eth</span>
       </div>
       <div className="rightmenu">
       {(accountAddress !=='' && accountAddress !==null) ? 

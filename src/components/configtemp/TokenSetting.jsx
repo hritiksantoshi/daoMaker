@@ -6,7 +6,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { GrAdd } from "react-icons/gr";
 
 import { Row } from "react-bootstrap";
-import { StepContext } from "../DaoForm";
+import { StepContext } from "../../App";
 
 function TokenSetting() {
     const { data, setData, currentStep , setStep } = useContext(StepContext);

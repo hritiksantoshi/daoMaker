@@ -1,4 +1,4 @@
-.modal.right.fade .modal-dialog {
+/* .modal.right.fade .modal-dialog {
     right: -480px;
     box-shadow: none;
             width: 400px;
@@ -6,11 +6,20 @@
 .modal-backdrop.show {
      opacity: 0; 
 }
-
-.modal-content{
-    margin-left: 250px;
-    margin-top: 64px;
+*/
+ 
+.connModal .modal-dialog{
+    margin-top: 42px;
+    margin-right: 0px;
+    
 }
+.connModal .modal-content{
+    border-radius: 4px;
+    width:53%;
+    margin-left: 204px;
+    align-items: center;
+}
+/*
 .metamaskWallet{
     display: inline;
     width:160px;
@@ -41,4 +50,4 @@ link{
 .connectWalletFooter{
     align-items: center;
     padding-right: 100px;
-}
+} */

@@ -1,9 +1,9 @@
- /* .modal-content{
+ .loader .modal-content{
     border: none;
      background: none; 
      margin-bottom: 100px;
-} /*
-.loader{
+} 
+/*.loader{
     background: "#FFFF00"
 }*/
 /* .modal-backdrop.show{

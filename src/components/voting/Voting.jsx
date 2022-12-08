@@ -11,7 +11,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import "./Voting.css";
-import { StepContext } from "../DaoForm";
+import { StepContext } from "../../App";
 
 const Input = styled(MuiInput)`
   width: 42px;

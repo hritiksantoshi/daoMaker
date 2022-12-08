@@ -4,18 +4,19 @@ import VotingImage from '../../assets/votingImage.svg';
 import TokenManager from '../../assets/tokenImage.jpg';
 import Accordion from 'react-bootstrap/Accordion';
 import { BiArrowBack } from "react-icons/bi";
-import { StepContext } from "../DaoForm";
+import { StepContext } from "../../App";
 import {deploy} from "../../utils/deploy"
+import { useNavigate } from 'react-router-dom';
 function ReviewInfo() {
     const { data, setData, currentStep, setStep ,loading,setloading,loader} = useContext(StepContext);
+    const navigate = useNavigate();
     const tokendeploy = async () => {
         try {
             setStep(currentStep+1);
-        //   const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading);
-          
-            window.location.href='http://localhost:3000/dapp';
-          
-         
+            const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading);
+            if(res){
+               navigate('/dapp');
+            }
         } catch (error) {
           console.log(error);
         }  

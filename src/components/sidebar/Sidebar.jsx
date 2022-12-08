@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import { Progress, ButtonGroup, Button, Row, Col,Steps, Panel } from "rsuite";
-import { StepContext } from "../DaoForm";
+import { StepContext } from "../../App";
 import "./Sidebar.css";
 
 const Sidebar = () => {

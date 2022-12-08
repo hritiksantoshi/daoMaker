@@ -79,10 +79,19 @@
     padding: 0px 0px 24px;
     margin: 0px auto;
 }
+.cardlink{
+    text-decoration: none;
+    color: gray;
+}
+.cardlink:hover{
+    text-decoration: none;
+    color:darkgray;
+}
+
 .ButtonB {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 264px;
     background: rgb(255, 255, 255);
     border-radius: 4px;
     cursor: pointer;
