@@ -1,0 +1,82 @@
+
+.mainNav{
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    transition: background 150ms ease-in-out 0s;
+    backdrop-filter: blur(6px);
+}
+.top{
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    border-top: 2px solid rgb(8, 190, 229);
+}
+.bth{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 4px;
+    background: none;
+}
+.btnDiv{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 16px;
+    height: 100%;
+}
+.connectedtxt{
+    font-size: 11px;
+    color: rgb(44, 198, 143);
+}
+.wltaddr{
+    margin-bottom: -5px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.ctdbtn{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    padding: 0px 8px;
+    background: none;
+}
+.online{
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background: rgb(44, 198, 143);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+}
+.mlp{
+    padding-left: 8px;
+    padding-right: 4px;
+}
+.nji{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: left;
+    padding: 0px 8px 0px 16px;
+}
+.Btnsvg{
+    color: rgb(143, 164, 181);
+}

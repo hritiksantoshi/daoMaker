@@ -9,8 +9,8 @@ import { useContext } from "react";
 import { StepContext } from "../../App";
 
 function ConnectionModal(props) {
-  const { show, setShow } = props;
-  const { setWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
+
+  const {show, setShow , setWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
   const handleClose = () => {
     setShow(false);
   };

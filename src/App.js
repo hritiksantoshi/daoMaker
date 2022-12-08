@@ -31,6 +31,7 @@ function App() {
   const [currentStep, setStep] = useState(0);
   const [walletAddress, setWalletAddress] = useState("");
   const [displayWalletAddress, setDisplayWalletAddress] = useState("");
+  const [show,setShow] = useState(false);
   const [data, setData] = useState({
     name: "",
     votingPercentage: 50,
@@ -66,6 +67,8 @@ function App() {
         setWalletAddress,
         displayWalletAddress,
         setDisplayWalletAddress,
+        show,
+        setShow
       }}
     >
       <BrowserRouter>

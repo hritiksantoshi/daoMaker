@@ -14,6 +14,8 @@ import { useContext } from "react";
 import { StepContext } from "../../App";
 function Welcome() {
   const {
+    show,
+       setShow,
     walletAddress,
     setWalletAddress,
     displayWalletAddress,
@@ -21,13 +23,14 @@ function Welcome() {
   } = useContext(StepContext);
   
   const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+ 
 
   const disconnectWallet = () => {
     console.log("wallet disconnected");
     localStorage.removeItem("isWalletConnected");
     setWalletAddress("");
   };
+
   const redirectPage = async () => {
     console.log(walletAddress);
     if ( walletAddress === "" ||  walletAddress === null) {
@@ -99,8 +102,7 @@ function Welcome() {
           )}
         </div>
         <ConnectionModal
-          show={show}
-          setShow={setShow}
+          
         />
         <div className="insideContainer">
           <header className="header">
