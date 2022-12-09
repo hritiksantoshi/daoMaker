@@ -9,6 +9,7 @@
     transition: background 150ms ease-in-out 0s;
     backdrop-filter: blur(6px);
 }
+
 .top{
     position: absolute;
     top: 0px;

@@ -12,7 +12,7 @@ function VotingDetails() {
   return (
     <Col lg="10">
     <div className='vote'>
-        <div className="Header___StyledDiv-euryjq-0 eTEUIa">
+        <div className="Header___StyledDiv-euryjq-0 eTEUIb">
         <div className="Header___StyledDiv2-euryjq-1 cyZZaq">
         <div className="Header___StyledDiv3-euryjq-2 hyGpzQ">
         <h1 className="Header___StyledH-euryjq-4 ejqTJG" style={{paddingLeft:'22px'}}>Voting</h1></div>

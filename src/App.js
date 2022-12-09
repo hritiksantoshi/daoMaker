@@ -10,9 +10,15 @@ import { Col, Container, Row } from "react-bootstrap";
 import Token from "./components/Tokens/Token";
 import VotingDetails from "./components/votingtemp/VotingDetails";
 import { createContext } from "react";
+import FinanceComp from "./components/Finance/FinanceComp";
+import ConnectionModal from "./components/connectionModal/ConnectionModal";
+import DisconnectModal from "./components/DisconnectModal/DisconnectModal";
+
 function Layout() {
   return (
     <Container fluid style={{ padding: 0 }}>
+      <ConnectionModal/>
+      <DisconnectModal/>
       <DaoNav />
       <Row className="myRow">
         <DaoSideBar />
@@ -81,6 +87,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="2" element={<Token />} />
             <Route path="3" element={<VotingDetails />} />
+            <Route path="4" element={<FinanceComp />} />
           </Route>
           <Route path="/token" element={<DaoForm />} />
         </Routes>

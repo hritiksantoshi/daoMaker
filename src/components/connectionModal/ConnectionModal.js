@@ -17,8 +17,8 @@ function ConnectionModal(props) {
   const connect = async () => {
     try {
       const account = await connectMetamask();
-      console.log(account);
-
+      console.log(account,"fhf");
+      localStorage.setItem("wltaddress",account);
       if (account.length === 42) {
         setShow(false);
         setWalletAddress(account);
