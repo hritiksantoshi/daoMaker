@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import coinbase from "../../assets/coinbase.png";
 import metamask from "../../assets/metamask.webp";
 import "./ConnectionModal.css";
-import { connectMetamask } from "../../config";
+import { connectMetamask ,isWalletConnected,connectWalletLocaly} from "../../config";
 import { useContext } from "react";
 import { StepContext } from "../../App";
 
 function ConnectionModal(props) {
 
-  const {show, setShow , setWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
+  const { show, setShow, setWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
   const handleClose = () => {
     setShow(false);
   };
   const connect = async () => {
     try {
       const account = await connectMetamask();
-      console.log(account,"fhf");
-      localStorage.setItem("wltaddress",account);
       if (account.length === 42) {
         setShow(false);
         setWalletAddress(account);
@@ -26,10 +24,27 @@ function ConnectionModal(props) {
           account.slice(0, 5) + "...." + account.slice(account.length - 4);
         setDisplayWalletAddress(accountDisplay);
       }
+      
+      if (!isWalletConnected()) {
+        connectWalletLocaly();
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
+  const isWalletAlreadyConnected = async () => {
+    if (isWalletConnected()) {
+      const accounts = await connectMetamask();
+      setWalletAddress(accounts);  
+      const accountDisplay =  accounts.slice(0, 5) + "...." + accounts.slice(accounts.length - 4);
+       setDisplayWalletAddress(accountDisplay);
+  };
+}
+useEffect(() => {
+  isWalletAlreadyConnected();
+},[isWalletAlreadyConnected]);
+
   return (
     <div className="modal">
       <Modal

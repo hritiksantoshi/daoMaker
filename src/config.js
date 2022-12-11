@@ -25,6 +25,19 @@ export const connectMetamask = async () => {
     return ethers.utils.formatEther(Balance); 
 }
 
-export const abc= ()=>{
-  console.log('abc');
+export const isWalletConnected = () => {
+  if(localStorage.getItem('isWalletConnected') === 'true'){
+      return true
+  }
+
+  return false;
+}
+
+export const connectWalletLocaly = () => {
+  localStorage.setItem('isWalletConnected', true);
+}
+
+export const disconnectWallet = () =>{
+  localStorage.removeItem('isWalletConnected');
+  
 }

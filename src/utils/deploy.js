@@ -20,8 +20,8 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,setloading) => {
       const signer = provider.getSigner();
       const factory = new ContractFactory(tokenABI, tokenByteCode.object, signer);
 
-      const supply = ethers.utils.parseUnits("1000", 'ether') ;
-      const token = await factory.deploy(name,symbol,supply);
+      const supply = ethers.utils.parseUnits("90", 'ether') ;
+      const token = await factory.deploy(name,symbol,["0xAf2FFfD3E5fa0A2C528a01cf8BcDa22b41e6769B"],[supply]);
      
       
       // const factory1 = new ContractFactory(timelockABI, timelockByteCode.object, signer);

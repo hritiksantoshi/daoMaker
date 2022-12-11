@@ -4,6 +4,7 @@ import { StepContext } from '../../App';
 import {BiCopy} from "react-icons/bi" 
 import metamask from "../../assets/metamask.webp";
 import copy from "copy-to-clipboard"; 
+import {disconnectWallet} from "../../config";
 import "./DisconnectModal.css";
 
 const DisconnectModal = () => {
@@ -11,22 +12,16 @@ const DisconnectModal = () => {
   const handleClose = () => {
     setShowDiss(false);
   };
-  let wlt = localStorage.getItem('wltaddress');
-  let wltadd;
-  if(wlt){
-  wltadd =  wlt.slice(0, 5) + "...." + wlt.slice(wlt.length - 4);
-  }
-  const disconnectWallet = ()=>{
-    console.log('wallet disconnected');
-    localStorage.removeItem('wltaddress')
-    setWalletAddress('');
-}
-
-const handledisconnect = () => {
-  handleClose();
-  disconnectWallet();
   
-}
+  
+
+const disconnectWalletFromApp = () => {
+  disconnectWallet();
+  setWalletAddress("");
+  setShowDiss(false);
+  
+};
+
   return (
     <Modal  className="dissModal"show={showDiss} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -39,7 +34,7 @@ const handledisconnect = () => {
             <h5 style={{fontSize:18,fontWeight:100,paddingTop:4}}>Metamask</h5>
             </div>
             <div style={{float:'right',display:'flex'}}>
-              <p className='addtxt'>{wltadd}</p>
+              <p className='addtxt'>{walletAddress}</p>
               <Button className='copybtn' onClick={() => copy(walletAddress)}>
             <BiCopy style={{color:"gray",width:24,height: 24}}/>
             </Button>
@@ -47,7 +42,7 @@ const handledisconnect = () => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button  className="discconnectbtn" onClick={handledisconnect}>
+          <Button  className="discconnectbtn" onClick={disconnectWalletFromApp}>
             Disconnect Wallet
           </Button>
         </Modal.Footer>

@@ -20,11 +20,7 @@ const DaoNav = () => {
     displayWalletAddress,
     setDisplayWalletAddress,
   } = useContext(StepContext);
-  let wlt = localStorage.getItem('wltaddress');
-  let wltadd;
-  if(wlt){
-  wltadd =  wlt.slice(0, 5) + "...." + wlt.slice(wlt.length - 4);
-  }
+  
     const [name,setName] = useState('')
     
 
@@ -39,8 +35,6 @@ const DaoNav = () => {
   
     useEffect(() => {
       data(); 
-     
-    setWalletAddress(wltadd);
   },[]);
   return (
     <div className="NavContainer">
@@ -53,7 +47,7 @@ const DaoNav = () => {
       <>
       <Button  type="button" className="connectbtn" onClick={()=>{setShowDiss(!showDiss)}}>
      <img src={wallet} style={{width:24,height:24}} /> 
-     <span className="walletadd">{wltadd}</span>
+     <span className="walletadd">{displayWalletAddress}</span>
       <span className="Button">
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19.204 10.255a.646.646 0 00-.585-.372h-5.887l.645-5.156a.646.646 0 00-1.138-.494l-7.354 8.825a.646.646 0 00.496 1.06h5.887l-.645 5.156a.647.647 0 001.138.494l7.354-8.825a.647.647 0 00.09-.688zm-7.025 6.992l.462-3.695a.646.646 0 00-.641-.727H6.761l5.06-6.071-.462 3.696a.646.646 0 00.641.726h5.239l-5.06 6.071z"></path></svg></span>
       </Button>
