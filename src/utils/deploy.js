@@ -42,7 +42,7 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,setloading,wltarr,wal
       // console.log(governance.address,"address");
       //  await governance.deployed();
        setloading(false);
-       
+       localStorage.setItem("tknadd",token.address);
       //  localStorage.setItem("my-data", governance.address);
       //  return governance.address;
       return token.adddress

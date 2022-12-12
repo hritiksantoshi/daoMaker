@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import "./TokenSetting.css";
 import TokenImage from "../../assets/tokenImage.jpg";
 import { AiFillQuestionCircle, AiOutlineDelete } from "react-icons/ai";
@@ -42,6 +42,11 @@ function TokenSetting() {
      setStep(currentStep + 1);
   
   };
+
+  useEffect(() =>{
+    
+  })
+
   return (
     <div className="configToken col-lg-10">
       <div className="insideContainer">

@@ -1,8 +1,24 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
+import { holders } from "../../utils/getData";
 import { Col, Container, Table } from "react-bootstrap";
 import "./Token1.css";
 const Token1 = () => {
-  const arr = [1, 2, 3];
+  const arr = [{"hld":"0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9","amount":23}];
+  const [tkn,setTkn] = useState([]);
+  const data = async () => {
+    try {
+      const res = await holders();
+      console.log(res);
+      setTkn(res);
+    } catch (error) {
+      console.log(error);
+    }  
+  }
+
+  useEffect(()=>{
+    data();
+    console.log(tkn);
+  })
   return (
     <Col lg="10">
       <Container>
@@ -31,8 +47,8 @@ const Token1 = () => {
               <tbody>
                 {arr.map((item, i) => (
                   <tr key={i}>
-                    <td>{item}</td>
-                    <td>{item}</td>
+                    <td>{item.hld}</td>
+                    <td>{item.amount}</td>
                   </tr>
                 ))}
               </tbody>
