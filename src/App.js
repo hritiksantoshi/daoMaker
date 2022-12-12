@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./App.css";
 import DaoForm from "./components/DaoForm";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
@@ -13,6 +13,7 @@ import { createContext } from "react";
 import FinanceComp from "./components/Finance/FinanceComp";
 import ConnectionModal from "./components/connectionModal/ConnectionModal";
 import DisconnectModal from "./components/DisconnectModal/DisconnectModal";
+import Token1 from "./components/Tokens/Token1";
 
 function Layout() {
   return (
@@ -48,8 +49,8 @@ function App() {
       mins: 0,
     },
     tokenName: "",
-    balanceInput: "",
-    walletAddress: "",
+    balanceInput: [],
+    walletAddress: [],
     tokenSymbol: "",
   });
   const [progress, setProgress] = useState(0);
@@ -58,6 +59,10 @@ function App() {
     console.log("lo");
     setloading(!loading);
   };
+
+  useEffect(() =>{
+    console.log(data);
+  })
   return (
     <StepContext.Provider
       value={{
@@ -85,7 +90,7 @@ function App() {
           <Route path='/' element={<Welcome />} />
           <Route path="/dapp" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="2" element={<Token />} />
+            <Route path="2" element={<Token1 />} />
             <Route path="3" element={<VotingDetails />} />
             <Route path="4" element={<FinanceComp />} />
           </Route>

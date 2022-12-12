@@ -1,0 +1,62 @@
+.tknhd{
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.5;
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 8px;
+    color: rgb(33, 43, 54);
+}
+.tknsymbol{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    white-space: nowrap;
+    min-width: 20px;
+    width: auto;
+    height: 20px;
+    padding: 1px 12px 0px;
+    border-radius: 20px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(77, 34, 223);
+    background: rgb(237, 230, 255);
+    user-select: none;
+}
+.symDiv{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 0px;
+}
+.tknheader{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0px;
+}
+.hdrDiv{
+    padding: 24px 0px;
+    background: none;
+    margin-bottom: 0px;
+    box-shadow: none;
+}
+.tbl-container{
+    position: relative;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgb(221, 228, 233);
+    border-width: 1px;
+    background: rgb(255, 255, 255);
+    color: rgb(33, 43, 54);
+}

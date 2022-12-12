@@ -8,12 +8,12 @@ import { StepContext } from "../../App";
 import {deploy} from "../../utils/deploy"
 import { useNavigate } from 'react-router-dom';
 function ReviewInfo() {
-    const { data, setData, currentStep, setStep ,loading,setloading,loader} = useContext(StepContext);
+    const { data, setData, currentStep, setStep ,loading,setloading,loader,walletAddress} = useContext(StepContext);
     const navigate = useNavigate();
     const tokendeploy = async () => {
         try {
             setStep(currentStep+1);
-            const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading);
+            const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading,data.walletAddress,data.balanceInput);
             if(res){
                navigate('/dapp');
             }

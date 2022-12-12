@@ -19,224 +19,197 @@ function TokenSetting() {
     list.splice(index, 1);
     setTokenlist(list);
   };
+
+  const submit = (e) => {
+    e.preventDefault();
+    console.log(typeof e.target.token.value);
+    let tokens = [];
+    let amount = [];
+
+    if (!e.target.token.length) {
+      tokens.push(e.target.token.value);
+      amount.push(e.target.balanceInput.value);
+      console.log(e.target.token.value);
+    } else {
+      for (let i = 0; i < e.target.token.length; i++) {
+        tokens.push(e.target.token[i].value);
+        console.log(e.target.token[i].value, "kl");
+        amount.push(e.target.balanceInput[i].value);
+      }
+    }
+
+    setData({ ...data, walletAddress: tokens ,balanceInput:amount});
+     setStep(currentStep + 1);
+  
+  };
   return (
     <div className="configToken col-lg-10">
       <div className="insideContainer">
-        <header className="tokenheader">
-          <h1 className="headerHeading">Configure Template</h1>
-          <div className="headerDiv">
-            <span className="headerSpan">
-              Choose your
-              <span className="iconSpan">
-                <a role="button" className="headerAnchor">
-                  <div className="headerDiv1">
-                    <span
-                      className="headerSpan1"
-                      style={{ backgroundImage: `url(${TokenImage})` }}
-                    ></span>
-                    <span className="headerSpan2">Tokens</span>
-                  </div>
-                </a>
+        <form onSubmit={submit} method="POST">
+          <header className="tokenheader">
+            <h1 className="headerHeading">Configure Template</h1>
+            <div className="headerDiv">
+              <span className="headerSpan">
+                Choose your
+                <span className="iconSpan">
+                  <a role="button" className="headerAnchor">
+                    <div className="headerDiv1">
+                      <span
+                        className="headerSpan1"
+                        style={{ backgroundImage: `url(${TokenImage})` }}
+                      ></span>
+                      <span className="headerSpan2">Tokens</span>
+                    </div>
+                  </a>
+                </span>
+                settings below.
               </span>
-              settings below.
-            </span>
-          </div>{" "}
-        </header>
+            </div>{" "}
+          </header>
 
-        <div className="formContainer" style={{ width: "608px" }}>
-          {/* <div className="TokenName" >
-                        <label htmlFor="Field_30">
-                            <div className="TokenNameDiv1">Token name<button type="button" title="What is Token Name?" className="Button1">
-                        <AiFillQuestionCircle className='questionMark' color='#4444c1' size={20}/>
-                        </button></div>
-                        <input type="text" id="Field_30" placeholder="My Organization Token" className="tokenNameInput1" value=""/></label>
-                        </div>
-                        <div className="TokenSymbol">
-                        <label htmlFor="Field_31">
-                        <div className="TokenNameDiv2">Token symbol<button type="button" title="What is Token Symbol?" className="Button2">
-                            <AiFillQuestionCircle className='questionMark' color='#4444c1' size={20}/>
-                        </button></div>
-                        <input type="text" id="Field_31" placeholder="MOT" className="tokenSymbolInput" value=""/></label>
-                        </div> */}
-
-          <div className="TokenName" style={{ width: "608px" }}>
-            <label>
-              <div className="TokenNameDiv1">
-                <div className="tokenHolderLabel1">
-                  <div>Token name</div>
-                  <div>Token Symbol</div>
+          <div className="formContainer" style={{ width: "608px" }}>
+            <div className="TokenName" style={{ width: "608px" }}>
+              <label>
+                <div className="TokenNameDiv1">
+                  <div className="tokenHolderLabel1">
+                    <div>Token name</div>
+                    <div>Token Symbol</div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="accountAddress">
-                  <div>
-                    <div className="tokenAddress">
+                <div>
+                  <div className="accountAddress">
+                    <div>
+                      <div className="tokenAddress">
+                        <input
+                          name="tokenName"
+                          type="text"
+                          placeholder="My Organization Token"
+                          className="inputAddress"
+                          onChange={(e) =>
+                            setData({ ...data, tokenName: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="balancesDiv" style={{}}>
+                        <div className=""></div>
+                      </div>
+                    </div>
+                    <div>
                       <input
+                        name="tokenSymbol"
                         type="text"
-                        placeholder="My Organization Token"
-                        className="inputAddress"
-              
+                        className="balanceInput"
+                        value={data.tokenBalance}
                         onChange={(e) =>
-                          setData({ ...data, tokenName: e.target.value })
+                          setData({ ...data, tokenSymbol: e.target.value })
                         }
                       />
                     </div>
-                    <div className="balancesDiv" style={{}}>
-                      <div className=""></div>
-                    </div>
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      className="balanceInput"
-                      value={data.tokenBalance}
-                      onChange={(e) =>
-                        setData({ ...data, tokenSymbol: e.target.value })
-                      }
-                    />
                   </div>
                 </div>
-              </div>
-            </label>
-          </div>
-          <br />
-          <div className="tokenHolderDetails" style={{ width: "608px" }}>
-            <label>
-              <div className="tokenHolderLabel">
-                <div className="tokenHolderLabel1">
-                  <div>Token holders</div>
-                  <div>Balances</div>
+              </label>
+            </div>
+            <br />
+            <div className="tokenHolderDetails" style={{ width: "608px" }}>
+              <label>
+                <div className="tokenHolderLabel">
+                  <div className="tokenHolderLabel1">
+                    <div>Token holders</div>
+                    <div>Balances</div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                {tokenList.map((singleToken, index) => {
-                  return (
-                    <div key={index} className="accountAddress">
-                      <div className="tokenAddress">
-                        <input
-                          name="token"
-                          id="token"
-                          type="text"
-                          placeholder="Account address"
-                          className="inputAddress"
-                          
-                          onChange={(e) =>
-                            setData({ ...data, walletAddress: e.target.value })
-                          }
-                        />
-                        <div className="deleteButtonDiv">
-                          <span className="spanButton">
-                            {tokenList.length > 1 && (
-                              <button
-                                type="button"
-                                title="Remove"
-                                className="deleteButton"
-                                onClick={() => handleTokenRemove(index)}
-                              >
-                                <span className="spanDeleteButton">
-                                  <AiOutlineDelete color="red" />
-                                </span>
-                              </button>
-                            )}
-                          </span>
+                <div>
+                  {tokenList.map((singleToken, index) => {
+                    return (
+                      <div key={index} className="accountAddress">
+                        <div className="tokenAddress">
+                          <input
+                            name="token"
+                            id="token"
+                            type="text"
+                            placeholder="Account address"
+                            className="inputAddress"
+
+                            // onChange={(e) =>
+                            //   setData({ ...data, walletAddress: [e.target.value] })
+                            // }
+                          />
+                          <div className="deleteButtonDiv">
+                            <span className="spanButton">
+                              {tokenList.length > 1 && (
+                                <button
+                                  type="button"
+                                  title="Remove"
+                                  className="deleteButton"
+                                  onClick={() => handleTokenRemove(index)}
+                                >
+                                  <span className="spanDeleteButton">
+                                    <AiOutlineDelete color="red" />
+                                  </span>
+                                </button>
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="balancesDiv" style={{}}>
+                          <div className=""></div>
+                        </div>
+
+                        <div>
+                          <input
+                            name="balanceInput"
+                            type="text"
+                            className="balanceInput"
+                            // onChange={(e) =>
+                            //   setData({ ...data, balanceInput: e.target.value })
+                            // }
+                          />
                         </div>
                       </div>
-                      <div className="balancesDiv" style={{}}>
-                        <div className=""></div>
-                      </div>
+                    );
+                  })}
+                </div>
+                <button
+                  type="button"
+                  className="addMoreAddress"
+                  onClick={handleTokenAdd}
+                >
+                  <span className="addMoreSpan">
+                    <GrAdd color="blue" className="AddIcon" />
+                  </span>
+                  Add more
+                </button>
+              </label>
+            </div>
 
-                      <div>
-                        <input
-                          type="text"
-                          className="balanceInput"
-                          onChange={(e) =>
-                            setData({ ...data, balanceInput: e.target.value })
-                          }
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-
-                {/* <div className="accountAddress">
-                      <div className="tokenAddress">
-                        <input
-                          type="text"
-                          placeholder="Account address"
-                          className="inputAddress"
-                          value={data.walletAddress} onChange={(e)=>setData({...data,walletAddress:e.target.value})}
-                        />
-                        <div className="deleteButtonDiv">
-                          <span className="spanButton">
-                            <button
-                              type="button"
-                              title="Remove"
-                              className="deleteButton"
-                            >
-                              <span className="spanDeleteButton">
-                                <AiOutlineDelete color="red" />
-                              </span>
-                            </button>
-                          </span>
-                        </div>
-                      </div>
-                      <div className="balancesDiv" style={{}}>
-                        <div className=""></div>
-                      </div>
-                  
-                    <div>
-                      <input type="text" className="balanceInput"          
-                      value={data.balanceInput} onChange={(e)=>setData({...data,balanceInput:e.target.value})}
- />
-                    </div>
-                  </div> */}
-              </div>
+            <br />
+            <section className="NoteForUser">
+              These settings will determine the name and symbol of the token
+              that will be created for your organization. Add members to define
+              the initial distribution of this token.
+            </section>
+            <br />
+            <div className="butttonReviewInfo">
               <button
                 type="button"
-                className="addMoreAddress"
-                onClick={handleTokenAdd}
+                className="backButton"
+                onClick={() => setStep(currentStep - 1)}
               >
-                <span className="addMoreSpan">
-                  <GrAdd color="blue" className="AddIcon" />
+                <span className="backIcon">
+                  <BiArrowBack color="rgb(8, 190, 229)" />
                 </span>
-                Add more
+                Back
               </button>
-            </label>
+              <button
+                type="submit"
+                // onClick={() => setStep(currentStep + 1)}
+                className="ButtonBase"
+              >
+                Next: Configure template
+              </button>
+            </div>
           </div>
-
-          <br />
-          <section className="NoteForUser">
-            These settings will determine the name and symbol of the token that
-            will be created for your organization. Add members to define the
-            initial distribution of this token.
-          </section>
-          <br />
-          <div className="butttonReviewInfo">
-            <button
-              type="button"
-              className="backButton"
-              onClick={() => setStep(currentStep - 1)}
-            >
-              <span className="backIcon">
-                <BiArrowBack color="rgb(8, 190, 229)" />
-              </span>
-              Back
-            </button>
-            <button
-              type="submit"
-              onClick={() => setStep(currentStep + 1)}
-              disabled={
-                data.tokenName == "" ||
-                data.balanceInput == "" ||
-                data.walletAddress == "" ||
-                data.tokenBalance == ""
-              }
-              className="ButtonBase"
-            >
-              Next: Configure template
-            </button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   );

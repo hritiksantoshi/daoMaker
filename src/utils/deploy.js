@@ -10,7 +10,7 @@ import { daoDetails } from './getData';
 const ethereum = window.ethereum;
 
 
-export const deploy = async (name,symbol,DaoName,DaoQourum,setloading) => {
+export const deploy = async (name,symbol,DaoName,DaoQourum,setloading,wltarr,waltbal) => {
   try{
     if (!ethereum)
         throw toast.error("No crypto wallet found. Please install it.");
@@ -19,10 +19,15 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,setloading) => {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
       const factory = new ContractFactory(tokenABI, tokenByteCode.object, signer);
-
-      const supply = ethers.utils.parseUnits("90", 'ether') ;
-      const token = await factory.deploy(name,symbol,["0xAf2FFfD3E5fa0A2C528a01cf8BcDa22b41e6769B"],[supply]);
      
+      let am = waltbal.map((e) =>{
+        return ethers.utils.parseUnits(e, 'ether') ;
+      });
+      
+      const supply = ethers.utils.parseUnits("90", 'ether') ;
+      console.log(am);
+      const token = await factory.deploy(name,symbol,wltarr,am);
+      await token.deployed();
       
       // const factory1 = new ContractFactory(timelockABI, timelockByteCode.object, signer);
       // const proposer = "0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9";
@@ -31,15 +36,16 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,setloading) => {
 
       // const timelock = await factory1.deploy(1,[proposer],[executor],admin);
       
-      const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
-      const votingPeriod = 7200;
-      const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingPeriod);
-      console.log(governance.address,"address");
-       await governance.deployed();
+      // const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
+      // const votingPeriod = 7200;
+      // const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingPeriod);
+      // console.log(governance.address,"address");
+      //  await governance.deployed();
        setloading(false);
        
-       localStorage.setItem("my-data", governance.address);
-       return governance.address;
+      //  localStorage.setItem("my-data", governance.address);
+      //  return governance.address;
+      return token.adddress
      
   }catch(err){
     console.log("errorrr deply msg fn", err);
