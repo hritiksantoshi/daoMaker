@@ -36,11 +36,11 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,votingPeriod,setloadi
 
       // const timelock = await factory1.deploy(1,[proposer],[executor],admin);
       
-      const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
-      const votingperiod = votingPeriod.day*7200 + votingPeriod.hours*300 + votingPeriod*5;
-      const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingperiod);
-      console.log(governance.address,"address");
-       await governance.deployed();
+      // const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
+      // const votingperiod = votingPeriod.day*7200 + votingPeriod.hours*300 + votingPeriod*5;
+      // const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingperiod);
+      // console.log(governance.address,"address");
+      //  await governance.deployed();
        setloading(false);
        localStorage.setItem("tknadd",token.address);
       //  localStorage.setItem("my-data", governance.address);
