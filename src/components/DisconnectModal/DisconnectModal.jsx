@@ -34,7 +34,7 @@ const disconnectWalletFromApp = () => {
             <h5 style={{fontSize:18,fontWeight:100,paddingTop:4}}>Metamask</h5>
             </div>
             <div style={{float:'right',display:'flex'}}>
-              <p className='addtxt'>{walletAddress}</p>
+              <p className='addtxt'>{displayWalletAddress}</p>
               <Button className='copybtn' onClick={() => copy(walletAddress)}>
             <BiCopy style={{color:"gray",width:24,height: 24}}/>
             </Button>

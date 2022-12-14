@@ -15,9 +15,9 @@ function VotingCards() {
                 <div className="VoteOption__Main-sc-mto016-0 lcnduA">
                     <div className="VoteOption__Labels-sc-mto016-1 eykeSg" ><span className="VoteOption___StyledSpan-sc-mto016-4 hOTxEy">
                         <span className="VoteCard___StyledSpan2-sc-1y56m76-5 kwqzoP" style={{ paddingRight: '100px' }}><span>Yes</span></span></span>
-                        <span className="VoteOption___StyledSpan2-sc-mto016-5 eAGLqW">68%</span></div>
+                        <span className="VoteOption___StyledSpan2-sc-mto016-5 eAGLqW">10%</span></div>
                     <div className="VoteOption___StyledDiv-sc-mto016-6 dBAdwG">
-                        <div className="VoteOption__Bar-sc-mto016-2 VoteOption___StyledBar-sc-mto016-3 dBTMlf" style={{ transform: "scale3d(0.68, 1, 1)" }}></div></div></div>
+                        <div className="VoteOption__Bar-sc-mto016-2 VoteOption___StyledBar-sc-mto016-3 dBTMlf" style={{ transform: "scale3d(0.10, 1, 1)" }}></div></div></div>
                 <div className="VoteOption__Main-sc-mto016-0 lcnduA">
                     <div className="VoteOption__Labels-sc-mto016-1 eykeSg" >
                         <span className="VoteOption___StyledSpan-sc-mto016-4 hOTxEy">

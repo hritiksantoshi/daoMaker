@@ -10,7 +10,7 @@ import { daoDetails } from './getData';
 const ethereum = window.ethereum;
 
 
-export const deploy = async (name,symbol,DaoName,DaoQourum,setloading,wltarr,waltbal) => {
+export const deploy = async (name,symbol,DaoName,DaoQourum,votingPeriod,setloading,wltarr,waltbal) => {
   try{
     if (!ethereum)
         throw toast.error("No crypto wallet found. Please install it.");
@@ -36,16 +36,16 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,setloading,wltarr,wal
 
       // const timelock = await factory1.deploy(1,[proposer],[executor],admin);
       
-      // const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
-      // const votingPeriod = 7200;
-      // const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingPeriod);
-      // console.log(governance.address,"address");
-      //  await governance.deployed();
+      const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
+      const votingperiod = votingPeriod.day*7200 + votingPeriod.hours*300 + votingPeriod*5;
+      const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingperiod);
+      console.log(governance.address,"address");
+       await governance.deployed();
        setloading(false);
        localStorage.setItem("tknadd",token.address);
       //  localStorage.setItem("my-data", governance.address);
       //  return governance.address;
-      return token.adddress
+      return token.address
      
   }catch(err){
     console.log("errorrr deply msg fn", err);

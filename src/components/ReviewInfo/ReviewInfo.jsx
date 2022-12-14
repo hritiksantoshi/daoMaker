@@ -13,7 +13,8 @@ function ReviewInfo() {
     const tokendeploy = async () => {
         try {
             setStep(currentStep+1);
-            const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,setloading,data.walletAddress,data.balanceInput);
+
+            const res = await deploy(data.tokenName,data.tokenSymbol,data.name,data.votingPercentage,data.votingPeriod,setloading,data.walletAddress,data.balanceInput);
             if(res){
                navigate('/dapp');
             }

@@ -14,12 +14,14 @@ import FinanceComp from "./components/Finance/FinanceComp";
 import ConnectionModal from "./components/connectionModal/ConnectionModal";
 import DisconnectModal from "./components/DisconnectModal/DisconnectModal";
 import Token1 from "./components/Tokens/Token1";
+import TokenModal from "./components/addTokenModal/TokenModal";
 
 function Layout() {
   return (
     <Container fluid style={{ padding: 0 }}>
       <ConnectionModal/>
       <DisconnectModal/>
+      <TokenModal/>
       <DaoNav />
       <Row className="myRow">
         <DaoSideBar />
@@ -40,6 +42,7 @@ function App() {
   const [displayWalletAddress, setDisplayWalletAddress] = useState("");
   const [show,setShow] = useState(false);
   const [showDiss,setShowDiss] = useState(false);
+  const [showTokenModal,setShowTokenModal] = useState(false);
   const [data, setData] = useState({
     name: "",
     votingPercentage: 50,
@@ -59,6 +62,8 @@ function App() {
     console.log("lo");
     setloading(!loading);
   };
+  const handleClose = () =>setShowTokenModal(false);
+  const handleShow = () => setShowTokenModal(true);
 
   useEffect(() =>{
     console.log(data);
@@ -82,7 +87,12 @@ function App() {
         show,
         setShow,
         showDiss,
-        setShowDiss
+        setShowDiss,
+        showTokenModal,
+        setShowTokenModal,
+        handleClose,
+        handleShow
+
       }}
     >
       <BrowserRouter>
