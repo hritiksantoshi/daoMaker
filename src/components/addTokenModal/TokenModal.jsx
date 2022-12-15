@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { StepContext } from "../../App.js";
+import { addToken } from '../../utils/proposal.js';
 function TokenModal() {
     const {
         showTokenModal,
@@ -10,8 +11,12 @@ function TokenModal() {
         handleClose,
         handleShow
       } = useContext(StepContext);
-
- 
+        
+      function createProposal(){
+        console.log(1);
+        addToken();
+        handleClose()
+      }
 
   return (
     <>
@@ -45,7 +50,7 @@ function TokenModal() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={createProposal}>
             ADD TOKEN
           </Button>
         </Modal.Footer>
