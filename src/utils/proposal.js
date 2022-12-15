@@ -34,6 +34,8 @@ export const addToken = async (token) => {
   
     const res = await proposal.wait();
     const hash = res.events[0].args;
+    localStorage.setItem('proposalId',hash[0]._hex);
+    localStorage.setItem('proposalDescription',hash[8]);
     console.log(hash,"hash");
      return hash;
     }

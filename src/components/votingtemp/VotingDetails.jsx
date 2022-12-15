@@ -1,4 +1,4 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import { Button, OverlayTrigger } from 'react-bootstrap';
 import {IoIosArrowDropdown} from 'react-icons/io'
 import {SlCalender} from 'react-icons/sl';
@@ -10,7 +10,15 @@ import { Col, Container, Row } from "react-bootstrap";
  
 function VotingDetails() {
     const {proposal,setProposal} = useContext(StepContext);
-  
+       
+    useEffect(() =>{
+      let proposalSet = localStorage.getItem("proposalId");
+      if(proposalSet){
+        setProposal([1]);
+      }
+    })
+
+
   return (
     <Col lg="10">
     <div className='vote'>

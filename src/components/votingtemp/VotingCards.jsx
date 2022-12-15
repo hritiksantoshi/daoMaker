@@ -1,15 +1,17 @@
 import React from "react";
 import "./VotingCards.css";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import Countdown from "react-countdown";
 import tokenImage from "../../assets/tokenImage.jpg";
 import { style } from "@mui/system";
 function VotingCards() {
+  const navigate = useNavigate();
   return (
-    <Link to={"/dapp/voting"} >
+  
       <div
         role="button"
         tabindex="0"
+        onClick={()=>{navigate("/dapp/vote")}}
         className="VoteCard___StyledCard-sc-1y56m76-0 fQlUVd Card___StyledDiv-sc-13r75gj-0 gQXESQ ButtonBase___StyledButton-ur1q76-0 loSVNR"
       >
         <div className="VoteCard___StyledDiv-sc-1y56m76-1 hHdapx">
@@ -104,7 +106,7 @@ function VotingCards() {
           <Countdown date={Date.now() + 86400000}  />
         </div>
       </div>
-      </Link>
+
   );
 }
 

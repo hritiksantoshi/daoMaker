@@ -106,7 +106,7 @@ function App() {
             <Route path="2" element={<Token1 />} />
             <Route path="3" element={<VotingDetails />} />
             <Route path="4" element={<FinanceComp />} />
-          <Route path="voting" element={<VotingInterFace />} />
+            <Route path="vote" element={<VotingInterFace/>}/>
           </Route>
           <Route path="/token" element={<DaoForm />} />
         </Routes>
