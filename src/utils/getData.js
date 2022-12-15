@@ -2,7 +2,7 @@ import contract from "../contracts/governanceABI.json";
 import token from "../contracts/tokenABI.json";
 import { ethers } from "ethers";
 const ethereum = window.ethereum;
-const address = localStorage.getItem("my-data");
+const address = localStorage.getItem("govadd");
 
 export const daoDetails = async () => {
   try {
@@ -86,4 +86,19 @@ export const tokenTotalSupply = async () =>{
     }catch(err){
         console.log(err);
    }
+   }
+
+   export const proposalData= async(proposalId)=>{
+        try {
+          if(ethereum){
+            const governorAddress = localStorage.getItem("govadd");
+           console.log(governorAddress);
+           const provider = new ethers.providers.Web3Provider(ethereum);
+           const signer = provider.getSigner();
+           const governanceContractDetails = new ethers.Contract(governorAddress,token, signer);
+          
+          }
+        } catch (error) {
+          
+        }
    }

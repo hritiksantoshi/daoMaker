@@ -21,6 +21,7 @@ const Input = styled(MuiInput)`
 const Voting = () => {
   const { data, setData, currentStep , setStep } = useContext(StepContext);
   const [value, setValue] = React.useState(50);
+  const ProposalId='0x48258c9ce8050aa25b56f9530a7ae5725a4482a0135ef5424cd4ae79a24a4c2f';
 
   const handleSliderChange = (event) => {
     let value = !isNaN(parseInt(event.target.value))?parseInt(event.target.value):0;

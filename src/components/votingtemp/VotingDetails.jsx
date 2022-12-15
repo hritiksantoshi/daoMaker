@@ -1,14 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import { Button, OverlayTrigger } from 'react-bootstrap';
 import {IoIosArrowDropdown} from 'react-icons/io'
-import {SlCalender} from 'react-icons/sl'
+import {SlCalender} from 'react-icons/sl';
+import {StepContext} from "../../App"
 import './VotingDetails.css';
 import {outcomePopover,statusPopover,appPopover} from './VotingPopover';
 import VotingCards from './VotingCards';
 import { Col, Container, Row } from "react-bootstrap";
-
+ 
 function VotingDetails() {
-    const [response,setResponse]=useState([1,2,3]);
+    const {proposal,setProposal} = useContext(StepContext);
+    const [response,setResponse]=useState([2]);
   return (
     <Col lg="10">
     <div className='vote'>
@@ -51,7 +53,7 @@ function VotingDetails() {
 <SlCalender/>
        </div></div></button></div></div>
     
-    <div style={{display:'flex'}}>{response.map((value,index)=>{
+    <div style={{display:'flex'}}>{proposal.map((value,index)=>{
         return <div style={{margin: '20px 20px 20px 20px'}}><VotingCards value={value}/></div>
     })}</div>
     </div>
