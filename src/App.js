@@ -43,6 +43,7 @@ function App() {
   const [show,setShow] = useState(false);
   const [showDiss,setShowDiss] = useState(false);
   const [showTokenModal,setShowTokenModal] = useState(false);
+  const [proposal,setProposal] = useState([]);
   const [data, setData] = useState({
     name: "",
     votingPercentage: 50,
@@ -91,7 +92,9 @@ function App() {
         showTokenModal,
         setShowTokenModal,
         handleClose,
-        handleShow
+        handleShow,
+        proposal,
+        setProposal
 
       }}
     >

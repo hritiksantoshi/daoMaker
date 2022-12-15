@@ -148,6 +148,7 @@
 }
 .fkJWFj {
     margin-top: 16px;
+    display: flex;
 }
 .cxzfHh {
     display: flex;
@@ -161,3 +162,10 @@
 .kxMtfP {
     margin-left: 4px;
 }
+.bEuPeh {
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    margin-right: 4px;
+    margin-top: -3px;
+  }
