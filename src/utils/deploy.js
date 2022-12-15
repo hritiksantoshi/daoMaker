@@ -27,7 +27,7 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,votingPeriod,setloadi
       const supply = ethers.utils.parseUnits("90", 'ether') ;
       console.log(am);
       const token = await factory.deploy(name,symbol,wltarr,am);
-      await token.deployed();
+     
       
       // const factory1 = new ContractFactory(timelockABI, timelockByteCode.object, signer);
       // const proposer = "0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9";
@@ -37,15 +37,16 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,votingPeriod,setloadi
       // const timelock = await factory1.deploy(1,[proposer],[executor],admin);
       
       const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
-      const votingperiod = votingPeriod.day*7200 + votingPeriod.hours*300 + votingPeriod*5;
+      const votingperiod = votingPeriod.day*7200 + votingPeriod.hours*300 + votingPeriod.mins*5;
       const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingperiod);
       console.log(governance.address,"address");
        await governance.deployed();
        setloading(false);
+       
        localStorage.setItem("tknadd",token.address);
-      //  localStorage.setItem("my-data", governance.address);
+       localStorage.setItem("govadd", governance.address);
       //  return governance.address;
-      return token.address
+      return governance.address
      
   }catch(err){
     console.log("errorrr deply msg fn", err);

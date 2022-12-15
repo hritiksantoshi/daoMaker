@@ -2,7 +2,7 @@ import contract from "../contracts/governanceABI.json";
 import token from "../contracts/tokenABI.json";
 import { ethers } from "ethers";
 const ethereum = window.ethereum;
-const address = localStorage.getItem("my-data");
+const address = localStorage.getItem("govadd");
 
 export const daoDetails = async () => {
   try {
