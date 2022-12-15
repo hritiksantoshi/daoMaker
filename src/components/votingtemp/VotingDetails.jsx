@@ -10,7 +10,7 @@ import { Col, Container, Row } from "react-bootstrap";
  
 function VotingDetails() {
     const {proposal,setProposal} = useContext(StepContext);
-    const [response,setResponse]=useState([2]);
+  
   return (
     <Col lg="10">
     <div className='vote'>

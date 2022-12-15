@@ -1,10 +1,12 @@
 import React from "react";
 import "./VotingCards.css";
+import { Link } from "react-router-dom";
 import Countdown from "react-countdown";
 import tokenImage from "../../assets/tokenImage.jpg";
+import { style } from "@mui/system";
 function VotingCards() {
   return (
-    <div>
+    <Link to={"/dapp/voting"} >
       <div
         role="button"
         tabindex="0"
@@ -102,7 +104,7 @@ function VotingCards() {
           <Countdown date={Date.now() + 86400000}  />
         </div>
       </div>
-    </div>
+      </Link>
   );
 }
 

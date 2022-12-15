@@ -8,7 +8,6 @@ let tokenAddress = localStorage.getItem("tknadd");
 
 export const addToken = async (token) => {
   try {
-    console.log(token,"jhjhk");
     if (ethereum) {
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
@@ -25,30 +24,14 @@ export const addToken = async (token) => {
         supply,
       ]);
       console.log(calldata);
-      let Description = `Proposal  #8 : ADD TOKEN`
+      let Description = `Proposal  #10 : ADD TOKEN`
       const proposal = await governance.propose(
         [tokenAddress],
         [0],
         [calldata],
          Description
       )
-    //   const descriptionHash = keccak256(bytes("ProPosal #1:add T8ken"));
-    //   const hashproposal = await governance.hashProposal(
-    //     [tokenAddress],
-    //     [0],
-    //     [calldata],
-    //     descriptionHash
-    //   );
-    //    console.log(proposal, "txn");
-    //   const proposalReciept = await provider.waitForTransaction(
-    //     `${proposal.hash}`,
-    //     1,
-    //     300000
-    //   );
-    //   console.log(proposalReciept,"id");
-    //   governance.on("ProposalCreated", (proposalId) => {
-    //     console.log(proposalId,"pro");
-    // });
+  
     const res = await proposal.wait();
     const hash = res.events[0].args;
     console.log(hash,"hash");

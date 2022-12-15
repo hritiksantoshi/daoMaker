@@ -15,7 +15,7 @@ import ConnectionModal from "./components/connectionModal/ConnectionModal";
 import DisconnectModal from "./components/DisconnectModal/DisconnectModal";
 import Token1 from "./components/Tokens/Token1";
 import TokenModal from "./components/addTokenModal/TokenModal";
-
+import VotingInterFace from "./components/voting/VotingInterface";
 function Layout() {
   return (
     <Container fluid style={{ padding: 0 }}>
@@ -106,6 +106,7 @@ function App() {
             <Route path="2" element={<Token1 />} />
             <Route path="3" element={<VotingDetails />} />
             <Route path="4" element={<FinanceComp />} />
+          <Route path="voting" element={<VotingInterFace />} />
           </Route>
           <Route path="/token" element={<DaoForm />} />
         </Routes>
