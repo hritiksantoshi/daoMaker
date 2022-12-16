@@ -39,7 +39,7 @@ export const deploy = async (name,symbol,DaoName,DaoQourum,votingPeriod,setloadi
       
       const factory2 = new ContractFactory(governanceABI, governanceByteCode.object, signer);
       const votingperiod = votingPeriod.day*7200 + votingPeriod.hours*300 + votingPeriod.mins*5;
-      const governance = await factory2.deploy(DaoName,token.address,DaoQourum,votingperiod);
+      const governance = await factory2.deploy(DaoName,token.address,timelock.address,DaoQourum,votingperiod);
       console.log(governance.address,"address");
        await governance.deployed();
        setloading(false);
