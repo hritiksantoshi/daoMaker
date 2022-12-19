@@ -2,10 +2,10 @@ import React from "react";
 import "./VotingInterFace.css";
 import { OverlayTrigger, Popover, Col, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { voteProposal } from "../../utils/proposal";
+import { transferProposal } from "../../utils/transfer";
 function VotingInterFace() {
   const vote = async () => {
-    const res = await voteProposal();
+    const res = await transferProposal();
   };
   const navigate = useNavigate();
   return (

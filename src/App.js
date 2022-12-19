@@ -16,12 +16,14 @@ import DisconnectModal from "./components/DisconnectModal/DisconnectModal";
 import Token1 from "./components/Tokens/Token1";
 import TokenModal from "./components/addTokenModal/TokenModal";
 import VotingInterFace from "./components/voting/VotingInterface";
+import TransferModal from "./components/tranferModal/TransferModal";
 function Layout() {
   return (
     <Container fluid style={{ padding: 0 }}>
       <ConnectionModal/>
       <DisconnectModal/>
       <TokenModal/>
+      <TransferModal/>
       <DaoNav />
       <Row className="myRow">
         <DaoSideBar />
@@ -43,6 +45,7 @@ function App() {
   const [show,setShow] = useState(false);
   const [showDiss,setShowDiss] = useState(false);
   const [showTokenModal,setShowTokenModal] = useState(false);
+  const [showTransferModal,setShowTransferModal] = useState(false);
   const [proposal,setProposal] = useState([]);
   const [data, setData] = useState({
     name: "",
@@ -63,8 +66,13 @@ function App() {
     console.log("lo");
     setloading(!loading);
   };
-  const handleClose = () =>setShowTokenModal(false);
+  const handleClose = () =>{setShowTokenModal(false);
+    setShowTransferModal(false)
+  };
   const handleShow = () => setShowTokenModal(true);
+  const handleShow1 = () => {console.log("123"); setShowTransferModal(true)};
+
+
 
   useEffect(() =>{
     console.log(data);
@@ -94,7 +102,10 @@ function App() {
         handleClose,
         handleShow,
         proposal,
-        setProposal
+        setProposal,
+        showTransferModal,
+        setShowTransferModal,
+        handleShow1
 
       }}
     >

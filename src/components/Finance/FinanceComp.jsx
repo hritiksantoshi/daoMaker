@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext} from 'react'
 import { OverlayTrigger ,Col} from 'react-bootstrap';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import { statusPopover } from '../votingtemp/VotingPopover';
 import './FinanceComp.css';
 import '../votingtemp/VotingDetails.css';
 import FinanceTransaction from './FinanceTransaction';
+import {StepContext} from "../../App";
 function FinanceComp() {
+  const{setShowTransferModal,handleShow1}  = useContext(StepContext);
     const[response,setResponse]=useState([1,2,3]);
   return (
     <Col lg="10">
@@ -19,7 +21,7 @@ function FinanceComp() {
         <div className="Header___StyledDiv3-euryjq-2 hyGpzQ">
         <h1 className="Header___StyledH-euryjq-4 ejqTJG">Finance</h1></div>
         <div className="Header___StyledDiv4-euryjq-3 eIkgfQ">
-        <button type="button" className="Button___StyledButtonBase-sc-8npd5h-0 iSFgBd ButtonBase___StyledButton-ur1q76-0 gUstKE">New transfer</button>
+        <button type="button" onClick={handleShow1} className="Button___StyledButtonBase-sc-8npd5h-0 iSFgBd ButtonBase___StyledButton-ur1q76-0 gUstKF">New transfer</button>
         </div></div></div>
         <section className="Box___StyledDiv-sc-54p6u6-0 cZRmoC">
         <h1 className="Box___StyledH-sc-54p6u6-1 bknuWX">Token Balances</h1>
