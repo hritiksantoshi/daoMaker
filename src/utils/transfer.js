@@ -29,6 +29,7 @@ export const withdraw = async (address, amount) => {
       // const NameContract = new web3.eth.Contract(treasuryABI, treasuryAddress);
 
       console.log(calldata, "gjh");
+      let id = localStorage.setItem("proposalNo",0);
       let desc = parseInt(localStorage.getItem('proposalNo')) + 1;
       let propNo = localStorage.setItem("proposalNo",desc);
      
