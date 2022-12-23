@@ -32,8 +32,9 @@ export const withdraw = async (address, amount) => {
       let id = localStorage.setItem("proposalNo",0);
       let desc = parseInt(localStorage.getItem('proposalNo')) + 1;
       let propNo = localStorage.setItem("proposalNo",desc);
+
      
-      let Description = `Proposal #${propNo}`;
+      let Description = `Proposal ${desc}`;
       const proposal = await governance.propose(
         [treasuryAddress],
         [0],
@@ -147,7 +148,7 @@ export const execute = async (address,amount) => {
     let fund = ethers.utils.parseUnits(amount, "ether");
     let calldata = iface.encodeFunctionData("releaseFunds", [address, fund]);
     let propNo = localStorage.getItem("proposalNo");
-    let Description = `Proposal #${propNo}`;
+    let Description = `Proposal ${propNo}`;
     const descriptionHash = ethers.utils.id(Description);
     const queue = await governance.queue([treasuryAddress], [0], [calldata], descriptionHash);
     console.log(queue,"queue");
