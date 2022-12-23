@@ -10,7 +10,7 @@ import treasuryByteCode from "../contracts/treasuryByteCode.json";
 
 import { ContractFactory, ethers } from "ethers";
 import { daoDetails } from "./getData";
-const ethereum = window.ethereum;
+let ethereum = window.ethereum;
 
 export const deploy = async (
   name,
@@ -29,6 +29,7 @@ export const deploy = async (
     setloading(true);
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
+    const selectedaddress = await signer.getAddress();
     const factory = new ContractFactory(tokenABI, tokenByteCode.object, signer);
 
     let am = waltbal.map((e) => {
@@ -40,12 +41,12 @@ export const deploy = async (
     const token = await factory.deploy(name, symbol, wltarr, am);
     await token.deployed();
     const tknholders = new ethers.Contract(token.address, tokenABI, signer);
-    await tknholders.delegate("0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9");
+    await tknholders.delegate(selectedaddress);
     console.log(token, "gum");
     const factory1 = new ContractFactory(timelockABI, timelockByteCode.object,signer);
-    const proposer = "0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9";
-    const executor = "0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9";
-    const admin = "0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9";
+    const proposer = `${selectedaddress}`;
+    const executor = `${selectedaddress}`;
+    const admin = `${selectedaddress}`;
 
     const timelock = await factory1.deploy(0, [proposer], [executor], admin);
     await timelock.deployed();
@@ -74,7 +75,7 @@ export const deploy = async (
     console.log(governance.address, "address");
     await governance.deployed();
     
-    const funds = ethers.utils.parseUnits("0.0001", "ether");
+    const funds = ethers.utils.parseUnits("0.2", "ether");
     const factory3 = new ContractFactory(treasuryABI, treasuryByteCode.object,signer);
     const treasury = await factory3.deploy({ value: funds });
 

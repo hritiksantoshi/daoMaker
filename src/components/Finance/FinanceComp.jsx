@@ -6,7 +6,7 @@ import "./FinanceComp.css";
 import "../votingtemp/VotingDetails.css";
 import FinanceTransaction from "./FinanceTransaction";
 import { StepContext } from "../../App";
-import { getTotalFunds } from "../../utils/getData"; 
+import { getTotalFunds , getProposalState } from "../../utils/getData"; 
 function FinanceComp() {
   const { setShowTransferModal, handleShow1 } = useContext(StepContext);
   const [response, setResponse] = useState([1]);
@@ -14,6 +14,7 @@ function FinanceComp() {
   const data = async () => {
     try {
       const res = await getTotalFunds();
+      console.log(res);
       setFunds(res);
     } catch (error) {
       console.log(error);
@@ -21,7 +22,7 @@ function FinanceComp() {
   }
 
   useEffect(() => {
-    data(); 
+ data();
     
 });
   return (

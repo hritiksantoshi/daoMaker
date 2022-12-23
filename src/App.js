@@ -77,7 +77,7 @@ function App() {
   const handleShow = () => setShowTokenModal(true);
   const handleShow1 = () => {console.log("123"); setShowTransferModal(true)};
 
-
+  
 
   useEffect(() =>{
     console.log(data);

@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import treasuryABI from "../contracts/treasuryABI.json"
 const ethereum = window.ethereum;
 const address = localStorage.getItem("govadd");
-let proposalId = localStorage.getItem("proposalId");
+
 export const daoDetails = async () => {
   try {
     if (ethereum) {
@@ -111,8 +111,12 @@ export const tokenTotalSupply = async () =>{
       if (ethereum) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const contract = new ethers.Contract(address, contract, signer);
-      
+        const governance = new ethers.Contract(address, contract, signer);
+        let id = localStorage.getItem("proposalId");
+        let state = await governance.state(id);
+        console.log(state.toString(),"state");
+        return state.toString();
+       
       }
     }catch(err){
       console.log(err);

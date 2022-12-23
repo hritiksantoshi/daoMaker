@@ -2,7 +2,7 @@ import React from "react";
 import "./VotingCards.css";
 import { Link ,useNavigate} from "react-router-dom";
 import Countdown from "react-countdown";
-import tokenImage from "../../assets/tokenImage.jpg";
+import tokenImage from "../../assets/finance.svg";
 import { style } from "@mui/system";
 function VotingCards() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function VotingCards() {
                 style={{ backgroundImage: `url(${tokenImage})` }}
               ></div>
               <span className="BadgeBase___StyledSpan-sc-4zaahn-2 kKBEru">
-                Tokens
+                Finance
               </span>
             </div>
           </a>
@@ -39,7 +39,7 @@ function VotingCards() {
           <span className="VoteCard___StyledSpan-sc-1y56m76-2 dXDcCV">
             #1:{" "}
           </span>
-          <span>Token: No description</span>
+          <span>Finance: Transfer</span>
         </div>
         <div className="VoteOption__Main-sc-mto016-0 lcnduA">
           <div className="VoteOption__Labels-sc-mto016-1 eykeSg">

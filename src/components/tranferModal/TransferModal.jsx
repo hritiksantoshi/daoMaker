@@ -8,9 +8,9 @@ function TransferModal() {
   const { showTransferModal,setShowTransferModal, handleClose, handleShow,setProposal,proposal,payee,setPayee } = useContext(StepContext);
    
  
-  const handleProposal = async () => {
+  const handleProposal = async (address,amount) => {
     handleClose();
-    const res = await withdraw(payee.address,payee.amount);
+    const res = await withdraw(address,amount);
     if(res){
       setProposal([...proposal,1]);
     }
@@ -22,7 +22,7 @@ function TransferModal() {
     address:e.target.address.value,
     amount:e.target.payee.value
   })
-   handleProposal();
+   handleProposal(e.target.address.value,e.target.payee.value);
   }
 
 
@@ -52,7 +52,7 @@ function TransferModal() {
             <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button type="submit" variant="primary" >
+          <Button type="submit" variant="primary" style={{marginLeft:10}}>
             Withdraw
           </Button>
           </Form>

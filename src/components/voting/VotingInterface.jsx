@@ -1,14 +1,55 @@
-import React ,{useContext} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./VotingInterFace.css";
-import { OverlayTrigger, Popover, Col, Container,ProgressBar } from "react-bootstrap";
+import {
+  OverlayTrigger,
+  Popover,
+  Col,
+  Container,
+  ProgressBar,
+} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { transferProposal } from "../../utils/transfer";
 import { StepContext } from "../../App";
+import { getProposalState } from "../../utils/getData";
+import { execute } from "../../utils/transfer";
 function VotingInterFace() {
-  const {voted,setVoted,payee} = useContext(StepContext);
+  const { voted, setVoted, payee } = useContext(StepContext);
+  // const [proposalState, setProposalState] = useState();
   const vote = async () => {
-    const res = await transferProposal(setVoted,payee.address,payee.amount);
+    const res = await transferProposal(setVoted, payee.address, payee.amount);
   };
+  // const data = async () => {
+  //   const state = await getProposalState();
+  //   setProposalState(state);
+  // };
+
+  // useEffect(() => {
+  //   console.log(proposalState, "hg");
+  //   if (proposalState == 4 && voted) {
+  //     console.log("hhyy");
+  //     execute(payee.address, payee.amount);
+  //   }
+  // }, [proposalState]);
+
+  useEffect(() => {
+    async function fetchState() {
+      const state = await getProposalState();
+      console.log(state, "hg");
+      if (state == 4) {
+        console.log("hhyy");
+        clearInterval(timer);
+        await execute(payee.address, payee.amount);
+      }
+    }
+    var timer = setInterval(() => {
+      fetchState();
+    }, 2000);
+  }, []);
+
+  // useEffect(() => {
+  //   data();
+  // });
+
   const navigate = useNavigate();
   return (
     <Col lg="10">
@@ -137,7 +178,11 @@ function VotingInterFace() {
                             Current votes
                           </h2>
                           <div className="VoteDetail___StyledSummaryBar-sc-1lgtq66-9 dPyQZ SummaryBar__Main-sc-9vcktj-0 hwHxkw">
-                          <ProgressBar variant="SOME_NAME" now={voted?100:0}  style={{width:"100%",height: 7}}/>
+                            <ProgressBar
+                              variant="SOME_NAME"
+                              now={voted ? 100 : 0}
+                              style={{ width: "100%", height: 7 }}
+                            />
                             <div className="SummaryBar__RequiredSeparatorClip-sc-9vcktj-2 cuJjtJ">
                               <div
                                 className="SummaryBar__RequiredSeparatorWrapper-sc-9vcktj-3 bRFfRo"
@@ -160,7 +205,7 @@ function VotingInterFace() {
                                 <div className="SummaryRows___StyledDiv4-sc-1gdki6w-4 bdDmsR">
                                   Yes
                                 </div>
-                                <div>{voted?100:0}%</div>
+                                <div>{voted ? 100 : 0}%</div>
                               </div>
                               <div className="SummaryRows___StyledDiv5-sc-1gdki6w-5 fPINVT">
                                 0 SAT
@@ -186,7 +231,7 @@ function VotingInterFace() {
                         <div>
                           <div className="VoteActions__ButtonsContainer-sc-vp6owq-0 kBsrRF">
                             <button
-                            onClick={vote}
+                              onClick={vote}
                               type="button"
                               className="VoteActions__VotingButton-sc-vp6owq-1 jwUKol Button___StyledButtonBase-sc-8npd5h-0 lbXcXR ButtonBase___StyledButton-ur1q76-0 gUstKE"
                             >
@@ -357,7 +402,7 @@ function VotingInterFace() {
                     </div>
                   </div>
                 </section>
-                <section className="Box___StyledDiv-sc-54p6u6-0 cZRmoC">
+                {/* <section className="Box___StyledDiv-sc-54p6u6-0 cZRmoC">
                   <h1 className="Box___StyledH-sc-54p6u6-1 bknuWX">
                     Minimum Approval %
                     <OverlayTrigger
@@ -408,7 +453,7 @@ function VotingInterFace() {
                       </div>
                     </div>
                   </div>
-                </section>
+                </section> */}
               </div>
             </div>
           </div>
