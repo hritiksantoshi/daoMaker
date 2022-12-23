@@ -1,9 +1,10 @@
 import contract from "../contracts/governanceABI.json";
 import token from "../contracts/tokenABI.json";
 import { ethers } from "ethers";
+import treasuryABI from "../contracts/treasuryABI.json"
 const ethereum = window.ethereum;
 const address = localStorage.getItem("govadd");
-
+let proposalId = localStorage.getItem("proposalId");
 export const daoDetails = async () => {
   try {
     if (ethereum) {
@@ -87,3 +88,35 @@ export const tokenTotalSupply = async () =>{
         console.log(err);
    }
    }
+
+   export const getTotalFunds = async () => {
+    try {
+      if (ethereum) {
+        console.log(123);
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        let treasuryAddress = localStorage.getItem("treadd");
+        const treasury = new ethers.Contract(treasuryAddress, treasuryABI, signer);
+        const funds = await provider.getBalance(treasuryAddress);
+        const etherFunds = ethers.utils.formatEther(funds);
+        return etherFunds;
+      }
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  export const getProposalState = async () => {
+    try {
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(address, contract, signer);
+      
+      }
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  

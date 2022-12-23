@@ -74,23 +74,23 @@ export const deploy = async (
     console.log(governance.address, "address");
     await governance.deployed();
     
-    const funds = ethers.utils.parseEther('10');
+    const funds = ethers.utils.parseUnits("0.0001", "ether");
     const factory3 = new ContractFactory(treasuryABI, treasuryByteCode.object,signer);
-    const treasury = await factory3.deploy("0x47245a94a1a278f8A33ebD6d5BB20c14eEb8b5a9",funds);
+    const treasury = await factory3.deploy({ value: funds });
 
     await treasury.deployed();
     const ownship = new ethers.Contract(treasury.address, treasuryABI, signer);
     await ownship.transferOwnership(timelock.address);
     
-    setloading(false);
+    
     localStorage.setItem("timelockadd", timelock.address);
     localStorage.setItem("tknadd", token.address);
     localStorage.setItem("govadd", governance.address);
     localStorage.setItem("treadd",treasury.address);
     await tmlk.grantRole(proposerRole, governance.address);
     await tmlk.grantRole(executorRole, governance.address);
+    setloading(false);
    
-    //  return governance.address;
     return governance.address;
   } catch (err) {
     console.log("errorrr deply msg fn", err);

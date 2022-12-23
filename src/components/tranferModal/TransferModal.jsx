@@ -5,19 +5,26 @@ import Modal from "react-bootstrap/Modal";
 import {withdraw } from "../../utils/transfer";
 import { StepContext } from "../../App.js";
 function TransferModal() {
-  const { showTransferModal,setShowTransferModal, handleClose, handleShow,setProposal,proposal } = useContext(StepContext);
+  const { showTransferModal,setShowTransferModal, handleClose, handleShow,setProposal,proposal,payee,setPayee } = useContext(StepContext);
    
-  const [token,setToken] = useState({
-    tknaddress:"",
-    tokens:""
-  })
+ 
   const handleProposal = async () => {
     handleClose();
-    const res = await withdraw();
+    const res = await withdraw(payee.address,payee.amount);
     if(res){
       setProposal([...proposal,1]);
     }
   };
+
+  const formSubmit = (e) =>{
+    e.preventDefault();
+  setPayee({
+    address:e.target.address.value,
+    amount:e.target.payee.value
+  })
+   handleProposal();
+  }
+
 
   return (
     <>
@@ -28,30 +35,28 @@ function TransferModal() {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>Add Token</Modal.Title>
+          <Modal.Title>NEW TRANSFER</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={formSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>
                 RECIPIENT (MUST BE A VALID ETHEREUM ADDRESS)
               </Form.Label>
-              <Form.Control type="text" name="tokenAddress" onChange={(e) =>setToken({...token,tknaddress:e.target.value}) } placeholder="" autoFocus />
+              <Form.Control type="text" name="address"  placeholder="" autoFocus />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>NO. OF TOKENS TO ADD</Form.Label>
-              <Form.Control  type="text" name="tokenNumber" onChange={(e) =>setToken({...token,tokens:e.target.value}) } placeholder="" autoFocus />
+              <Form.Label>WITHDRAW AMOUNT</Form.Label>
+              <Form.Control  type="text" name="payee"  placeholder="" autoFocus />
             </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleProposal}>
-            ADD TOKEN
+          <Button type="submit" variant="primary" >
+            Withdraw
           </Button>
-        </Modal.Footer>
+          </Form>
+        </Modal.Body>
       </Modal>
     </>
   );

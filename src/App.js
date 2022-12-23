@@ -47,6 +47,11 @@ function App() {
   const [showTokenModal,setShowTokenModal] = useState(false);
   const [showTransferModal,setShowTransferModal] = useState(false);
   const [proposal,setProposal] = useState([]);
+  const [voted,setVoted] = useState(false);
+  const [payee,setPayee] = useState({
+      address:"",
+      amount:""
+  })
   const [data, setData] = useState({
     name: "",
     votingPercentage: 50,
@@ -105,7 +110,11 @@ function App() {
         setProposal,
         showTransferModal,
         setShowTransferModal,
-        handleShow1
+        handleShow1,
+        voted,
+        setVoted,
+        payee,
+        setPayee
 
       }}
     >

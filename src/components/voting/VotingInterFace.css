@@ -626,3 +626,6 @@
     height: 100%;
     border-left: 1px dashed rgb(33, 43, 54);
 }
+.bg-SOME_NAME{
+    background-color: rgb(44, 198, 143)!important;
+  }

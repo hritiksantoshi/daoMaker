@@ -74,6 +74,30 @@
     transition-duration: 50ms;
     transition-timing-function: ease-in-out;
 }
+.iABmVj{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(99, 115, 129);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+.kxnezG {
+    margin-right: 6px;
+}
+.efLiHx {
+    list-style: none;
+    display: flex;
+}
+.dPFkJz{
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 12px 0px;
+    display: flex;
+}
 
 .gUstKF {
     position: relative;

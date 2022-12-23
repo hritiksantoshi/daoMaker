@@ -1,11 +1,13 @@
-import React from "react";
+import React ,{useContext} from "react";
 import "./VotingInterFace.css";
-import { OverlayTrigger, Popover, Col, Container } from "react-bootstrap";
+import { OverlayTrigger, Popover, Col, Container,ProgressBar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { transferProposal } from "../../utils/transfer";
+import { StepContext } from "../../App";
 function VotingInterFace() {
+  const {voted,setVoted,payee} = useContext(StepContext);
   const vote = async () => {
-    const res = await transferProposal();
+    const res = await transferProposal(setVoted,payee.address,payee.amount);
   };
   const navigate = useNavigate();
   return (
@@ -135,7 +137,7 @@ function VotingInterFace() {
                             Current votes
                           </h2>
                           <div className="VoteDetail___StyledSummaryBar-sc-1lgtq66-9 dPyQZ SummaryBar__Main-sc-9vcktj-0 hwHxkw">
-                            <div className="SummaryBar___StyledDiv2-sc-9vcktj-5 kEELia"></div>
+                          <ProgressBar variant="SOME_NAME" now={voted?100:0}  style={{width:"100%",height: 7}}/>
                             <div className="SummaryBar__RequiredSeparatorClip-sc-9vcktj-2 cuJjtJ">
                               <div
                                 className="SummaryBar__RequiredSeparatorWrapper-sc-9vcktj-3 bRFfRo"
@@ -158,7 +160,7 @@ function VotingInterFace() {
                                 <div className="SummaryRows___StyledDiv4-sc-1gdki6w-4 bdDmsR">
                                   Yes
                                 </div>
-                                <div>0%</div>
+                                <div>{voted?100:0}%</div>
                               </div>
                               <div className="SummaryRows___StyledDiv5-sc-1gdki6w-5 fPINVT">
                                 0 SAT
