@@ -49,7 +49,7 @@ function TokenSetting() {
 
   return (
     <div className="configToken col-lg-10">
-      <div className="insideContainer">
+      <div >
         <form onSubmit={submit} method="POST">
           <header className="tokenheader">
             <h1 className="headerHeading">Configure Template</h1>
@@ -207,7 +207,7 @@ function TokenSetting() {
               </button>
               <button
                 type="submit"
-                // onClick={() => setStep(currentStep + 1)}
+                disabled={data.tokenName=='' && data.tokenSymbol == ""}
                 className="ButtonBase"
               >
                 Next: Configure template

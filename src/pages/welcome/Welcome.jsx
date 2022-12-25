@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import newOrg from "../../assets/action-create.2a5239ed.png";
 import openExisting from "../../assets/open_existing.png";
 import logo from "../../assets/logo.png";
@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ConnectionModal from "../../components/connectionModal/ConnectionModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getBalance } from "../../config";
+import { getBalance,isWalletConnected,connectMetamask} from "../../config";
 import { useContext } from "react";
 import { StepContext } from "../../App";
 import DisconnectModal from "../../components/DisconnectModal/DisconnectModal";
@@ -48,6 +48,23 @@ function Welcome() {
       }
     }
   };
+
+  const isWalletAlreadyConnected = async () => {
+    if (isWalletConnected()) {
+      const accounts = await connectMetamask();
+      setWalletAddress(accounts);  
+      const accountDisplay =  accounts.slice(0, 5) + "...." + accounts.slice(accounts.length - 4);
+       setDisplayWalletAddress(accountDisplay);
+  };
+}
+
+useEffect(() => {
+  if (window.ethereum) {
+    window.ethereum.on("accountsChanged", () => {
+      isWalletAlreadyConnected();
+    });
+  }
+});
   return (
     <>
       <div className="container">
@@ -79,11 +96,7 @@ function Welcome() {
              </>    
           ) : (
             <>
-              <div className="goerliButton">
-                <button type="button" className="goerliButtonCss">
-                  <section className="goerliSection">Goerli</section>
-                </button>
-              </div>{" "}
+             
               <div className="connectWallet">
                 <button
                   type="button"

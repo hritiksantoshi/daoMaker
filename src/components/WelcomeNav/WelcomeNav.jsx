@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext , useEffect} from "react";
 import { StepContext } from "../../App";
 import logo from "../../assets/logo.png";
+import { isWalletConnected ,connectMetamask} from "../../config";
 import "./WelcomeNav.css";
 export const WelcomeNav = () => {
   const {
@@ -13,6 +14,23 @@ export const WelcomeNav = () => {
     displayWalletAddress,
     setDisplayWalletAddress,
   } = useContext(StepContext);
+  
+  const isWalletAlreadyConnected = async () => {
+    if (isWalletConnected()) {
+      const accounts = await connectMetamask();
+      setWalletAddress(accounts);  
+      const accountDisplay =  accounts.slice(0, 5) + "...." + accounts.slice(accounts.length - 4);
+       setDisplayWalletAddress(accountDisplay);
+  };
+}
+
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", () => {
+        isWalletAlreadyConnected();
+      });
+    }
+  });
   return (
     <div className="mainNav">
       <div className="top"></div>

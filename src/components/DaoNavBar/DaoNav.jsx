@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import ConnectionModal from '../../components/connectionModal/ConnectionModal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {getBalance} from '../../config';
+import {isWalletConnected ,connectMetamask} from '../../config';
 import wallet from "../../assets/wallet.png"
 import { daoDetails } from "../../utils/getData";
 import { StepContext } from "../../App";
@@ -36,6 +36,24 @@ const DaoNav = () => {
     useEffect(() => {
       data(); 
   },[]);
+
+  const isWalletAlreadyConnected = async () => {
+    if (isWalletConnected()) {
+      const accounts = await connectMetamask();
+      setWalletAddress(accounts);  
+      const accountDisplay =  accounts.slice(0, 5) + "...." + accounts.slice(accounts.length - 4);
+       setDisplayWalletAddress(accountDisplay);
+  };
+}
+
+
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", () => {
+        isWalletAlreadyConnected();
+      });
+    }
+  });
   return (
     <div className="NavContainer">
       <div className="navbar">

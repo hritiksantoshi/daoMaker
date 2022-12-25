@@ -10,7 +10,7 @@ import { StepContext } from "../../App";
 
 function ConnectionModal(props) {
 
-  const { show, setShow, setWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
+  const { show, setShow,walletAddress, setWalletAddress, setDisplayWalletAddress } = useContext(StepContext);
   const handleClose = () => {
     setShow(false);
   };
@@ -41,9 +41,7 @@ function ConnectionModal(props) {
        setDisplayWalletAddress(accountDisplay);
   };
 }
-useEffect(() => {
-  isWalletAlreadyConnected();
-},[isWalletAlreadyConnected]);
+
 
   return (
     <div className="modal">
