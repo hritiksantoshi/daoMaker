@@ -7,6 +7,7 @@ import {
   Container,
   ProgressBar,
 } from "react-bootstrap";
+import Timer from "../timer/Timer";
 import { useNavigate } from "react-router-dom";
 import { transferProposal } from "../../utils/transfer";
 import { StepContext } from "../../App";
@@ -330,21 +331,10 @@ function VotingInterFace() {
                           </svg>
                         </span>
                         <span>
-                          <span className="Timer___StyledSpan3-sc-58hkwl-4 dbndqR">
-                            50
-                            <span className="Timer___StyledSpan4-sc-58hkwl-5 gyfTWX">
-                              M
-                            </span>
-                          </span>
-                          <span className="Timer___StyledSpan5-sc-58hkwl-6 bywagn">
-                            :
-                          </span>
-                          <span className="Timer___StyledSpan3-sc-58hkwl-4 kktMCr">
-                            45
-                            <span className="Timer___StyledSpan4-sc-58hkwl-5 gyfTWX">
-                              S
-                            </span>
-                          </span>
+                         
+                      <Timer/>
+
+
                         </span>
                       </time>
                     </div>
@@ -382,7 +372,7 @@ function VotingInterFace() {
                       <div className="VoteDetail___StyledDiv4-sc-1lgtq66-10 bAFsYe">
                         0%{" "}
                         <span className="VoteDetail___StyledSpan2-sc-1lgtq66-11 pvLqM">
-                          (&gt;56% needed)
+                          (&gt;50% needed)
                         </span>
                       </div>
                       <div className="VoteDetail___StyledSummaryBar2-sc-1lgtq66-12 ZPFig SummaryBar__Main-sc-9vcktj-0 hwHxkw">

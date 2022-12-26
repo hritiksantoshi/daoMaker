@@ -3,6 +3,7 @@ import "./VotingCards.css";
 import { Link ,useNavigate} from "react-router-dom";
 import Countdown from "react-countdown";
 import tokenImage from "../../assets/finance.svg";
+import Timer from "../timer/Timer";
 import { style } from "@mui/system";
 function VotingCards() {
   const navigate = useNavigate();
@@ -103,7 +104,7 @@ function VotingCards() {
               ></path>
             </svg>
           </span>
-          <Countdown date={Date.now() + 86400000}  />
+         <Timer/>
         </div>
       </div>
 

@@ -38,11 +38,15 @@ export const deploy = async (
 
     const supply = ethers.utils.parseUnits("90", "ether");
     console.log(am);
+
     const token = await factory.deploy(name, symbol, wltarr, am);
     await token.deployed();
+
     const tknholders = new ethers.Contract(token.address, tokenABI, signer);
     await tknholders.delegate(selectedaddress);
+
     console.log(token, "gum");
+
     const factory1 = new ContractFactory(timelockABI, timelockByteCode.object,signer);
     const proposer = `${selectedaddress}`;
     const executor = `${selectedaddress}`;
@@ -50,6 +54,7 @@ export const deploy = async (
 
     const timelock = await factory1.deploy(0, [proposer], [executor], admin);
     await timelock.deployed();
+
     const tmlk = new ethers.Contract(timelock.address, timelockABI, signer);
     const proposerRole = await tmlk.PROPOSER_ROLE();
     const executorRole = await tmlk.EXECUTOR_ROLE();
@@ -75,7 +80,7 @@ export const deploy = async (
     console.log(governance.address, "address");
     await governance.deployed();
     
-    const funds = ethers.utils.parseUnits("0.2", "ether");
+    const funds = ethers.utils.parseUnits("0.1", "ether");
     const factory3 = new ContractFactory(treasuryABI, treasuryByteCode.object,signer);
     const treasury = await factory3.deploy({ value: funds });
 
@@ -88,6 +93,7 @@ export const deploy = async (
     localStorage.setItem("tknadd", token.address);
     localStorage.setItem("govadd", governance.address);
     localStorage.setItem("treadd",treasury.address);
+
     await tmlk.grantRole(proposerRole, governance.address);
     await tmlk.grantRole(executorRole, governance.address);
     setloading(false);

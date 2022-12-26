@@ -11,20 +11,22 @@ function FinanceComp() {
   const { setShowTransferModal, handleShow1 } = useContext(StepContext);
   const [response, setResponse] = useState([1]);
   const [funds,setFunds] = useState("");
-  const data = async () => {
-    try {
-      const res = await getTotalFunds();
-      console.log(res);
-      setFunds(res);
-    } catch (error) {
-      console.log(error);
-    }  
-  }
+ 
 
   useEffect(() => {
- data();
-    
-});
+    const data = async () => {
+      try {
+        const res = await getTotalFunds();
+        setFunds(res);
+      } catch (error) {
+        console.log(error);
+      }  
+    }
+ 
+ setInterval(() => {
+  data(); 
+}, 3000);
+},[]);
   return (
     <Col lg="10">
       <div>

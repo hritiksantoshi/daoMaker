@@ -48,6 +48,7 @@ function App() {
   const [showTransferModal,setShowTransferModal] = useState(false);
   const [proposal,setProposal] = useState([]);
   const [voted,setVoted] = useState(false);
+  const [deposit,setDeposit] = useState("");
   const [payee,setPayee] = useState({
       address:"",
       amount:""
@@ -114,7 +115,9 @@ function App() {
         voted,
         setVoted,
         payee,
-        setPayee
+        setPayee,
+        deposit,
+        setDeposit
 
       }}
     >

@@ -54,6 +54,24 @@ export const withdraw = async (address, amount) => {
   }
 };
 
+
+export const deposit = async (amount) =>{
+  try{
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const treasury = new ethers.Contract(treasuryAddress, treasuryABI, signer);
+      const supply = ethers.utils.parseUnits(amount, "ether");
+      const damount = await treasury.addFunds({value:supply});
+      await damount.wait();
+      return damount
+    }
+
+  }catch(err){
+    console.log(err);
+  }
+}
+
 export const transferProposal = async (setVoted, address, amount) => {
   try {
     if (ethereum) {
