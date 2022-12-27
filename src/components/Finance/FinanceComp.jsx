@@ -25,7 +25,7 @@ function FinanceComp() {
  
  setInterval(() => {
   data(); 
-}, 3000);
+}, 2000);
 },[]);
   return (
     <Col lg="10">
