@@ -100,7 +100,7 @@ function VotingInterFace() {
                           <div className="BadgeBase___StyledDiv-sc-4zaahn-1 hgFmdW">
                             <span className="AppBadge___StyledSpan2-sc-5gkmrm-3 fVBxZm"></span>
                             <span className="BadgeBase___StyledSpan-sc-4zaahn-2 kKBEru">
-                              Tokens
+                              Finance
                             </span>
                           </div>
                         </button>

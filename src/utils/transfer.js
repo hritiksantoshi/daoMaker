@@ -24,14 +24,14 @@ export const withdraw = async (address, amount) => {
       let iface = new ethers.utils.Interface(ABI);
       let fund = ethers.utils.parseUnits(amount.toString(), "ether");
       let calldata = iface.encodeFunctionData("releaseFunds", [address, fund]);
-      //   console.log(calldata, "calldata");
-      // const web3 = new Web3(ethereum);
-      // const NameContract = new web3.eth.Contract(treasuryABI, treasuryAddress);
 
       console.log(calldata, "gjh");
-      let id = localStorage.setItem("proposalNo",0);
+      let id = localStorage.getItem("proposalNo");
+      if(id == undefined){
+        localStorage.setItem("proposalNo",0);
+      }
       let desc = parseInt(localStorage.getItem('proposalNo')) + 1;
-      let propNo = localStorage.setItem("proposalNo",desc);
+      localStorage.setItem("proposalNo",desc);
 
      
       let Description = `Proposal ${desc}`;

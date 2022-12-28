@@ -1,3 +1,4 @@
+
 .hZYLiF {
     height: 100vh;
 }
@@ -169,7 +170,7 @@
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-image: url(https://ipfs.eth.aragon.network/ipfs/QmUMZ1orGEixbQEfwPE7gyN6A31bcSTS9vyUJRoEFYDEeF/meta/icon.svg);
+    background-image: url("../../assets/finance.svg");
 }
 .kKBEru {
     white-space: nowrap;
